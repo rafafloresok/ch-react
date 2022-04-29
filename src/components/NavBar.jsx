@@ -1,7 +1,8 @@
 import logo from '../images/logo.jpg';
+import CartWidget from './CartWidget';
 import './NavBar.css';
 
-function NavBar() {
+export default function NavBar() {
     return (
         <header className="header">
             <a className="header__logo" href="">
@@ -15,8 +16,7 @@ function NavBar() {
                     <li className="navBar__item"><a className="navBar__link" href="#">Otros sándwiches</a></li>
                 </ul>
             </nav>
+            <CartWidget/>
         </header>
     );
 }
-
-export default NavBar
