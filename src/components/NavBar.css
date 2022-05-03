@@ -21,6 +21,9 @@
     font-weight: bold;
     list-style: none;
 }
+.navBar__item {
+    margin: 0.3rem;
+}
 .navBar__link {
     text-decoration: none;
     color: white;
