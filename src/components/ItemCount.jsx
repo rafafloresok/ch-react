@@ -3,18 +3,22 @@ import itemImg from '../images/hamburguesa-de-cordero.jpg';
 import './ItemCount.css';
 
 export default function ItemCount({stock, initial, onAdd}) {
-    const [quantity, addQuantity] = useState(initial);
+    const [quantity, setQuantity] = useState(initial);
 
     function increase() {
         if (quantity < stock) {
-            addQuantity(quantity + 1);
+            setQuantity(quantity + 1);
         } 
     }
 
     function decrease() {
         if (quantity > 1) {
-            addQuantity(quantity - 1);
+            setQuantity(quantity - 1);
         } 
+    }
+
+    function addToCart() {
+        onAdd(quantity);
     }
 
     return (
@@ -26,7 +30,7 @@ export default function ItemCount({stock, initial, onAdd}) {
                 <button id='less' className="itemCount__minusBtn" onClick={decrease}>-</button>
                 <span className="itemCount__quantity">{quantity}</span>
                 <button id='plus' className="itemCount__plusBtn" onClick={increase}>+</button>
-                <button className="itemCount__addToCartBtn" onClick={onAdd}><i class="bi bi-bag-plus"></i></button>
+                <button className="itemCount__addToCartBtn" onClick={addToCart}><i class="bi bi-bag-plus"></i></button>
             </div>
         </div>
     );
