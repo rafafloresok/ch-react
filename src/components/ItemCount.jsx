@@ -2,22 +2,17 @@ import { useState } from 'react';
 import itemImg from '../images/hamburguesa-de-cordero.jpg';
 import './ItemCount.css';
 
-
-export default function ItemCount({stock, initial}) {
+export default function ItemCount({stock, initial, onAdd}) {
     const [quantity, addQuantity] = useState(initial);
 
-    function onAdd() {
-        if (quantity === stock) {
-            console.log("sin stock");
-        } else {
+    function increase() {
+        if (quantity < stock) {
             addQuantity(quantity + 1);
         } 
     }
 
-    function onLess() {
-        if (quantity === 1) {
-            console.log("cantidad minima");
-        } else {
+    function decrease() {
+        if (quantity > 1) {
             addQuantity(quantity - 1);
         } 
     }
@@ -28,10 +23,10 @@ export default function ItemCount({stock, initial}) {
             <div className="itemCount__filter"></div>
             <div className="itemCount__info">
                 <h2 className="itemCount__title">Hamburguesa de Cordero</h2>
-                <button id='less' className="itemCount__minusBtn" onClick={onLess}>-</button>
+                <button id='less' className="itemCount__minusBtn" onClick={decrease}>-</button>
                 <span className="itemCount__quantity">{quantity}</span>
-                <button id='plus' className="itemCount__plusBtn" onClick={onAdd}>+</button>
-                <button className="itemCount__addToCartBtn"><i class="bi bi-bag-plus"></i></button>
+                <button id='plus' className="itemCount__plusBtn" onClick={increase}>+</button>
+                <button className="itemCount__addToCartBtn" onClick={onAdd}><i class="bi bi-bag-plus"></i></button>
             </div>
         </div>
     );
