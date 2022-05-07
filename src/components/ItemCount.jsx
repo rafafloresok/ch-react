@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import itemImg from '../images/hamburguesa-de-cordero.jpg';
 import './ItemCount.css';
 
 export default function ItemCount({stock, initial, onAdd}) {
@@ -23,15 +22,10 @@ export default function ItemCount({stock, initial, onAdd}) {
 
     return (
         <div className="itemCount">
-            <img className="itemCount__img" src={itemImg} alt="" />
-            <div className="itemCount__filter"></div>
-            <div className="itemCount__info">
-                <h2 className="itemCount__title">Hamburguesa de Cordero</h2>
-                <button id='less' className="itemCount__minusBtn" onClick={decrease}>-</button>
-                <span className="itemCount__quantity">{quantity}</span>
-                <button id='plus' className="itemCount__plusBtn" onClick={increase}>+</button>
-                <button className="itemCount__addToCartBtn" onClick={addToCart}><i class="bi bi-bag-plus"></i></button>
-            </div>
+            <button id='less' className="itemCount__minusBtn" onClick={decrease}>-</button>
+            <span className="itemCount__quantity">{quantity}</span>
+            <button id='plus' className="itemCount__plusBtn" onClick={increase}>+</button>
+            <button className="itemCount__addToCartBtn" onClick={addToCart}><i class="bi bi-bag-plus"></i></button>
         </div>
     );
 }

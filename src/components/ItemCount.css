@@ -1,33 +1,7 @@
 .itemCount {
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-    position: relative;
-    border-radius: 5%;
-    overflow: hidden;
-    margin: 1rem auto;
-}
-.itemCount__filter {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-}
-.itemCount__info {
-    z-index: 2;
-    position: absolute;
-    bottom: 1rem;
-    width: 100%;
-    padding: 1rem;
-    color: white;
-}
-
-.itemCount__title {
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .itemCount__minusBtn {
     border: none;
@@ -62,4 +36,5 @@
     cursor: pointer;
     font-size: 3rem;
     color: white;
+    padding-bottom: 0.4rem;
 }
