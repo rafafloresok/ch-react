@@ -2,36 +2,41 @@
     {
         "id": "01",
         "categoria": "hamburguesas",
-        "name": "Hamburguesa Con Queso",
+        "name": "Hamburguesa de Cordero",
         "price": "300",
-        "img": "/images/hamburguesa-de-cordero.jpg"
+        "img": "/images/hamburguesa-de-cordero.jpg",
+        "detail": "Medallón de cordero, cebolla al Malbec, jamón, lechuga, queso cheddar, tomate, mayonesa casera."
     },
     {
         "id": "02",
         "categoria": "hamburguesas",
         "name": "Hamburguesa Clásica",
         "price": "350",
-        "img": "/images/hamburguesa-de-cordero.jpg"
+        "img": "/images/hamburguesa-clasica.jpg",
+        "detail": "Medallón de ternera, lechuga, tomate, jamón, queso, huevo, mayonesa casera."
     },
     {
         "id": "03",
         "categoria": "hamburguesas",
         "name": "Hamburguesa Cheddar",
         "price": "400",
-        "img": "/images/hamburguesa-de-cordero.jpg"
+        "img": "/images/hamburguesa-cheddar.jpg",
+        "detail": "Medallón de ternera, queso cheddar, panceta dorada, lechuga, tomate, mayonesa casera."
     },
     {
         "id": "04",
         "categoria": "hamburguesas",
-        "name": "Hamburguesa de Doble Carne",
+        "name": "Hamburguesa Doble Carne",
         "price": "450",
-        "img": "/images/hamburguesa-de-cordero.jpg"
+        "img": "/images/hamburguesa-doble-carne.jpg",
+        "detail": "2 medallones de ternera, queso cheddar, panceta dorada, lechuga, tomate, mayonesa casera."
     },
     {
         "id": "05",
         "categoria": "hamburguesas",
         "name": "Hamburguesa de Cerdo",
         "price": "500",
-        "img": "/images/hamburguesa-de-cordero.jpg"
+        "img": "/images/hamburguesa-de-cerdo.jpg",
+        "detail": "Medallón de cerdo, guacamole, tomate asado, queso, lechuga, mayonesa casera."
     }
 ]
