@@ -1,0 +1,37 @@
+[
+    {
+        "id": "01",
+        "categoria": "hamburguesas",
+        "name": "Hamburguesa Con Queso",
+        "price": "300",
+        "img": "/images/hamburguesa-de-cordero.jpg"
+    },
+    {
+        "id": "02",
+        "categoria": "hamburguesas",
+        "name": "Hamburguesa Clásica",
+        "price": "350",
+        "img": "/images/hamburguesa-de-cordero.jpg"
+    },
+    {
+        "id": "03",
+        "categoria": "hamburguesas",
+        "name": "Hamburguesa Cheddar",
+        "price": "400",
+        "img": "/images/hamburguesa-de-cordero.jpg"
+    },
+    {
+        "id": "04",
+        "categoria": "hamburguesas",
+        "name": "Hamburguesa de Doble Carne",
+        "price": "450",
+        "img": "/images/hamburguesa-de-cordero.jpg"
+    },
+    {
+        "id": "05",
+        "categoria": "hamburguesas",
+        "name": "Hamburguesa de Cerdo",
+        "price": "500",
+        "img": "/images/hamburguesa-de-cordero.jpg"
+    }
+]

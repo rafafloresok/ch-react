@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
+import ItemDetail from "./ItemDetail";
 
-export default function ItemListContainer({greeting}) {
+export default function ItemDetailContainer() {
     const [items,setItems] = useState([]);
     const [loader,setLoader] = useState(true);
 
@@ -14,9 +14,9 @@ export default function ItemListContainer({greeting}) {
     },[]);
 
     return (
-        <div className="itemListContainer">
-            <h1 className="itemListContainer__title" style={{color: "blue"}}>{greeting}</h1>
-            {loader? <h2>Cargando...</h2>: <ItemList items={items} />}
+        <div className="itemDetailContainer">
+            <h1 className="itemDetailContainer__title">Soy Item Detail Container</h1>
+            {loader? <h2>Cargando...</h2>: <ItemDetail categoria={items[1].categoria} name={items[1].name} price={items[1].price} img={items[1].img}/>}
         </div>
     );
 }

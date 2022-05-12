@@ -1,10 +1,10 @@
 .item {
     width: 100%;
     min-width: 250px;
-    max-width: 320px;
+    max-width: 280px;
     text-align: center;
     position: relative;
-    border-radius: 5%;
+    border-radius: 20px;
     overflow: hidden;
     margin: 1rem auto;
 }
@@ -20,6 +20,11 @@
 .item__title {
     margin-bottom: 1rem;
     font-size: 2rem;
+}
+.item__category {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
 }
 .item__price {
     font-size: 1.5rem;
