@@ -1,0 +1,24 @@
+.itemDetail {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #008f39;
+}
+.itemDetail__info {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+.itemDetail__category {
+    text-transform: capitalize;
+}
+.itemDetail__title {
+    font-size: 2rem;
+    margin: 0.5rem;
+}
+.itemDetail__detail {
+    margin: 0.5rem;
+}

@@ -1,0 +1,8 @@
+.itemDetailContainer {
+    width: 100vw;
+    height: calc(100vh - 85px);
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+}

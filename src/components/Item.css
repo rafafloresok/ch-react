@@ -1,12 +1,11 @@
 .item {
     width: 100%;
-    min-width: 250px;
     max-width: 280px;
     text-align: center;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    margin: 1rem auto;
+    margin: 1rem;
 }
 .item__filter {
     width: 100%;
