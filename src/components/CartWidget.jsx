@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import './CartWidget.css';
 
 
 export default function CartWidget() {
     return (
-        <div className="cart">
-            <a href="#" className="cart__link">
-                <span className="cart__icon"><i class="bi bi-bag"></i></span>
-                <span className="cart__counter">0</span>
-            </a>
-        </div>
+        <Link to='/cart'>
+            <div className='cartWidget'>
+                <span className="cartWidget__icon"><i class="bi bi-bag"></i></span>
+                <span className="cartWidget__counter">0</span>
+            </div>
+        </Link>
     );
 }

@@ -1,11 +1,14 @@
 import Item from "./Item";
 import './ItemList.css';
 
-export default function ItemList({items}) {
+export default function ItemList({items, id}) {
 
     return (
         <div className="itemList">
-            {items.map(el => <Item key={el.id} item={el}/>)}
+            {id? 
+                items.filter(el => el.categoria === id).map((el,index) => <Item key={el.id} el={el} index={index}/>)
+                    :items.map((el,index) => <Item key={el.id} el={el} index={index}/>)
+            }
         </div>
     );
 }

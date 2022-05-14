@@ -12,7 +12,7 @@
     max-width: 640px;
     text-align: center;
 }
-.header__img {
+.header__logo {
     border-radius: 50%;
     width: 40px;
 }
@@ -23,11 +23,9 @@
 }
 .navBar__item {
     margin: 0.3rem;
-}
-.navBar__link {
-    text-decoration: none;
     color: white;
     text-transform: uppercase;
+    text-decoration: none;
 }
 .navBar__link:hover {
     opacity: 80%;
@@ -47,7 +45,7 @@
         font-size: 2rem;
     }
 
-    .header__img {
+    .header__logo {
         width: 50px;
     }
 }

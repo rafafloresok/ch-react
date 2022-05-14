@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer() {
     const [items,setItems] = useState([]);
     const [loader,setLoader] = useState(true);
-    const [select] = useState(0);
+    const {id} = useParams();
 
     useEffect(() => {
         setTimeout(() => {
@@ -19,7 +20,7 @@ export default function ItemDetailContainer() {
     return (
         <div className="itemDetailContainer">
             <h1 className="itemDetailContainer__title">Soy Item Detail Container</h1>
-            {loader? <h2>Cargando...</h2>: <ItemDetail item={items[select]}/>}
+            {loader? <h2>Cargando...</h2>: <ItemDetail item={items[id]}/>}
         </div>
     );
 }

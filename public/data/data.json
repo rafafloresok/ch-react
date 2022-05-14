@@ -17,7 +17,7 @@
     },
     {
         "id": "03",
-        "categoria": "hamburguesas",
+        "categoria": "lomos",
         "name": "Hamburguesa Cheddar",
         "price": "400",
         "img": "/images/hamburguesa-cheddar.jpg",
@@ -25,7 +25,7 @@
     },
     {
         "id": "04",
-        "categoria": "hamburguesas",
+        "categoria": "milanesas",
         "name": "Hamburguesa Doble Carne",
         "price": "450",
         "img": "/images/hamburguesa-doble-carne.jpg",
@@ -33,7 +33,7 @@
     },
     {
         "id": "05",
-        "categoria": "hamburguesas",
+        "categoria": "otros",
         "name": "Hamburguesa de Cerdo",
         "price": "500",
         "img": "/images/hamburguesa-de-cerdo.jpg",

@@ -1,13 +1,13 @@
-.cart {
+.cartWidget {
     display: flex;
     position: relative;
 }
-.cart__icon {
+.cartWidget__icon {
     color: white;
     background-color: #1c1c1c;
     font-size: 3rem;
 }
-.cart__counter {
+.cartWidget__counter {
     color: white;
     background-color: red;
     padding: 0rem 0.5rem 0rem 0.4rem;
@@ -22,10 +22,10 @@
 }
 
 @media (min-width: 768px) {
-    .cart__icon {
+    .cartWidget__icon {
         font-size: 3.5rem;
     }
-    .cart__counter {
+    .cartWidget__counter {
         font-size: 1.5rem;
     }
 }
