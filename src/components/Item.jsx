@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount";
 import './Item.css';
 
-export default function Item({el,index}) {
+export default function Item({el}) {
 
     return (
         <div className="item">
@@ -11,7 +11,7 @@ export default function Item({el,index}) {
                 <p className='item__category'>{el.categoria}</p>
                 <h3 className="item__title">{el.name}</h3>
                 <p className='item__price'>{`Precio: $${el.price}`}</p>
-                <ItemCount index={index} initial={1} stock={5} onAdd={(quantity)=>console.log(`${quantity} unidad/es agregada/s al pedido`)}/>
+                <ItemCount id={el.id} initial={1} stock={5} onAdd={(quantity)=>console.log(`${quantity} unidad/es agregada/s al pedido`)}/>
             </div>
         </div>
     );

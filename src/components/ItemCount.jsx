@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import './ItemCount.css';
 
-export default function ItemCount({index, initial, stock, onAdd}) {
+export default function ItemCount({id, initial, stock, onAdd}) {
     const [quantity, setQuantity] = useState(initial);
 
     function increase() {
@@ -26,7 +26,7 @@ export default function ItemCount({index, initial, stock, onAdd}) {
             <button id='less' className="itemCount__minusBtn" onClick={decrease}>-</button>
             <span className="itemCount__quantity">{quantity}</span>
             <button id='plus' className="itemCount__plusBtn" onClick={increase}>+</button>
-            <Link to={`/itemDetail/${index}`}>
+            <Link to={`/itemDetail/${id}`}>
                 <button className="itemCount__addToCartBtn" onClick={addToCart}><i class="bi bi-bag-plus"></i></button>
             </Link>
         </div>
