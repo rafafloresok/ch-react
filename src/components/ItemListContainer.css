@@ -1,0 +1,20 @@
+.itemListContainer {
+    width: 100%;
+    min-height: calc(100vh - 85px);
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+@media (min-width: 600px) {
+    .itemListContainer {
+        min-height: calc(100vh - 50px);
+    }
+}
+
+@media (min-width: 768px) {
+    .itemListContainer {
+        min-height: calc(100vh - 59px);
+    }
+}

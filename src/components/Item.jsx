@@ -1,4 +1,3 @@
-//import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import './Item.css';
 
@@ -15,7 +14,6 @@ export default function Item({el}) {
                 <Link to={`/itemDetail/${el.id}`}>
                     <button className="item__addBtn" >Agregar al pedido</button>
                 </Link>
-                {/* <ItemCount id={el.id} initial={1} stock={5} onAdd={(quantity)=>console.log(`${quantity} unidad/es agregada/s al pedido`)}/> */}
             </div>
         </div>
     );

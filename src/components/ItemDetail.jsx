@@ -16,10 +16,9 @@ export default function ItemDetail({item, onAdd}) {
             <div className='itemDetail__info'>
                 <h3 className="itemDetail__title">{item.name}</h3>
                 <p className="itemDetail__detail">{item.detail}</p>
-                {inputType === 'itemCount' ? <ItemCount item={item} initial={1} stock={5} onAdd={onAdd} handleInputType={handleInputType}/>: <BuyButtons/>}
-                
-                {/* <p className='itemDetail__price'>{`Precio: $${item.price}`}</p> */}
-                {/* <button className="itemDetail__addBtn" >Agregar al pedido</button> */}
+                {inputType === 'itemCount' ?
+                    <ItemCount item={item} initial={1} stock={5} onAdd={onAdd} handleInputType={handleInputType}/>:
+                    <BuyButtons/>}
             </div>
         </div>
     );

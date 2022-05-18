@@ -6,9 +6,12 @@ import './ItemDetailContainer.css';
 export default function ItemDetailContainer() {
     const [item,setItem] = useState({});
     const [loader,setLoader] = useState(true);
+    const [quantityToAdd,setQuantityToAdd] = useState();
+
     const {id} = useParams();
 
     function onAdd(quantity, name) {
+        setQuantityToAdd(quantity)
         console.log(`${quantity} unidad/es de ${name} agregada/s al pedido`)
     }
 
@@ -25,8 +28,9 @@ export default function ItemDetailContainer() {
 
     return (
         <div className="itemDetailContainer">
-            {/* <h1 className="itemDetailContainer__title">Soy Item Detail Container</h1> */}
-            {loader? <h2>Cargando...</h2>: <ItemDetail item={item} onAdd={onAdd}/>}
+            {loader?
+                <h2>Cargando...</h2>:
+                <ItemDetail item={item} onAdd={onAdd}/>}
         </div>
     );
 }
