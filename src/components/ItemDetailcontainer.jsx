@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import Loader from "./Loader";
 import './ItemDetailContainer.css';
 
 export default function ItemDetailContainer() {
@@ -23,13 +24,13 @@ export default function ItemDetailContainer() {
             .then(data => setItem(data))
             .catch(err => console.log(err))
             .finally(() => setLoader(false))
-        }, 2000);
+        }, 5000);
     },[id]);
 
     return (
         <div className="itemDetailContainer">
             {loader?
-                <h2>Cargando...</h2>:
+                <Loader/>:
                 <ItemDetail item={item} onAdd={onAdd}/>}
         </div>
     );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import Loader from "./Loader";
 import './ItemListContainer.css';
 
 export default function ItemListContainer() {
@@ -15,13 +16,13 @@ export default function ItemListContainer() {
             .then(data => setItems(data))
             .catch(err => console.log(err))
             .finally(() => setLoader(false))
-        }, 2000);
+        }, 5000);
     },[]);
 
     return (
         <div className="itemListContainer">
             {loader?
-                <h2>Cargando...</h2>:
+                <Loader/>:
                 <ItemList items={items} id={id} />}
         </div>
     );
