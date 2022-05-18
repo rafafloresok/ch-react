@@ -8,6 +8,10 @@ export default function ItemDetailContainer() {
     const [loader,setLoader] = useState(true);
     const {id} = useParams();
 
+    function onAdd(quantity, name) {
+        console.log(`${quantity} unidad/es de ${name} agregada/s al pedido`)
+    }
+
     useEffect(() => {
         setTimeout(() => {
             fetch("/data/data.json")
@@ -22,7 +26,7 @@ export default function ItemDetailContainer() {
     return (
         <div className="itemDetailContainer">
             {/* <h1 className="itemDetailContainer__title">Soy Item Detail Container</h1> */}
-            {loader? <h2>Cargando...</h2>: <ItemDetail item={item}/>}
+            {loader? <h2>Cargando...</h2>: <ItemDetail item={item} onAdd={onAdd}/>}
         </div>
     );
 }
