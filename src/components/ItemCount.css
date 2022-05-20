@@ -38,3 +38,7 @@
     color: white;
     padding-bottom: 0.4rem;
 }
+
+@media (min-width: 600px) {
+    
+}
