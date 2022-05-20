@@ -7,14 +7,8 @@ import './ItemDetailContainer.css';
 export default function ItemDetailContainer() {
     const [item,setItem] = useState({});
     const [loader,setLoader] = useState(true);
-    const [quantityToAdd,setQuantityToAdd] = useState();
 
     const {id} = useParams();
-
-    function onAdd(quantity, name) {
-        setQuantityToAdd(quantity)
-        console.log(`${quantity} unidad/es de ${name} agregada/s al pedido`)
-    }
 
     useEffect(() => {
         setTimeout(() => {
@@ -31,7 +25,7 @@ export default function ItemDetailContainer() {
         <div className="itemDetailContainer">
             {loader?
                 <Loader/>:
-                <ItemDetail item={item} onAdd={onAdd}/>}
+                <ItemDetail item={item}/>}
         </div>
     );
 }

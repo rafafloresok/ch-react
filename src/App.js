@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { cartContext } from "./context/cartContext";
+import CartContextProv from "./context/CartContext";
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailcontainer';
@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   return (
-    <cartContext.Provider value={[]}>
+    <CartContextProv>
       <BrowserRouter>
         <div className="App">
           <NavBar/>
@@ -21,7 +21,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-    </cartContext.Provider>
+    </CartContextProv>
   );
 }
 
