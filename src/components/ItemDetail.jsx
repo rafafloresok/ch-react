@@ -6,19 +6,16 @@ import './ItemDetail.css';
 
 export default function ItemDetail({item}) {
     const [inputType, setInputType] = useState('itemCount');
-    //const [quantityToAdd,setQuantityToAdd] = useState();
-    const {addToCart, cartList} = UseCartContext();
+    const {addToCart} = UseCartContext();
     
-    function onAdd(quantity, name) {
-        //setQuantityToAdd(quantity)
-        console.log(`${quantity} unidad/es de ${name} agregada/s al pedido`);
-        addToCart({item, quantity})
+    function onAdd(quantity) {
+        addToCart({...item, quantity})
     }
     function handleInputType() {
         setInputType('buyButtons');
     }
 
-    console.log(cartList);
+    //console.log(cartList);
 
     return (
         <div className="itemDetail">
