@@ -27,15 +27,19 @@ export default function CartContextProv({children}) {
     function clearCart() {
         setCartList([]);
     }
-    /* function clearItem(id) {
-        DESARROLLAR
-    } */
+    function clearItem(id) {
+        let i = cartList.findIndex(el => el.id === id);
+        const newCartList = cartList;
+        newCartList.splice(i,1);
+        setCartList(newCartList);
+    }
 
     return (
         <cartContext.Provider value={{
             cartList,
             addToCart,
-            clearCart
+            clearCart,
+            clearItem
         }}>
             {children}
         </cartContext.Provider>
