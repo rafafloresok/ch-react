@@ -9,6 +9,7 @@ export function UseCartContext() {
 export default function CartContextProv({children}) {
     const [cartList, setCartList] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [totalItems, setTotalItems] = useState(0);
 
     function isInCart(id) {
         return cartList.some(el => el.id === id);
@@ -38,6 +39,10 @@ export default function CartContextProv({children}) {
             .map(curr => curr.quantity*curr.price)
             .reduce((acc,curr) => acc+curr,0)
         );
+        setTotalItems(arr
+            .map(curr => curr.quantity)
+            .reduce((acc,curr) => acc+curr,0)
+        );
     }
 
     return (
@@ -47,6 +52,7 @@ export default function CartContextProv({children}) {
             clearCart,
             clearItem,
             totalPrice,
+            totalItems
         }}>
             {children}
         </cartContext.Provider>
