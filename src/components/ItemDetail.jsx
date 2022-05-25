@@ -10,12 +10,8 @@ export default function ItemDetail({item}) {
     
     function onAdd(quantity) {
         addToCart({...item, quantity})
-    }
-    function handleInputType() {
         setInputType('buyButtons');
     }
-
-    //console.log(cartList);
 
     return (
         <div className="itemDetail">
@@ -24,7 +20,7 @@ export default function ItemDetail({item}) {
                 <h3 className="itemDetail__title">{item.name}</h3>
                 <p className="itemDetail__detail">{item.detail}</p>
                 {inputType === 'itemCount' ?
-                    <ItemCount item={item} initial={1} stock={5} onAdd={onAdd} handleInputType={handleInputType}/>:
+                    <ItemCount initial={1} stock={5} onAdd={onAdd}/>:
                     <BuyButtons/>}
             </div>
         </div>

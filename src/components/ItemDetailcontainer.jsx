@@ -18,7 +18,7 @@ export default function ItemDetailContainer() {
             .then(data => setItem(data))
             .catch(err => console.log(err))
             .finally(() => setLoader(false))
-        }, 1000);
+        }, 300);
     },[id]);
 
     return (

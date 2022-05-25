@@ -16,7 +16,7 @@ export default function ItemListContainer() {
             .then(data => setItems(data))
             .catch(err => console.log(err))
             .finally(() => setLoader(false))
-        }, 1000);
+        }, 300);
     },[]);
 
     return (
