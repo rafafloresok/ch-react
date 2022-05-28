@@ -20,7 +20,7 @@ export default function ItemDetail({item}) {
                 <h3 className="itemDetail__title">{item.name}</h3>
                 <p className="itemDetail__detail">{item.detail}</p>
                 {inputType === 'itemCount' ?
-                    <ItemCount initial={1} stock={5} onAdd={onAdd}/>:
+                    <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/>:
                     <BuyButtons/>}
             </div>
         </div>
