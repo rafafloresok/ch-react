@@ -1,7 +1,7 @@
 [
     {
         "id": "01",
-        "categoria": "hamburguesas",
+        "category": "hamburguesas",
         "name": "Hamburguesa de Cordero",
         "price": "950",
         "img": "/images/hamburguesa-de-cordero.jpg",
@@ -9,7 +9,7 @@
     },
     {
         "id": "02",
-        "categoria": "hamburguesas",
+        "category": "hamburguesas",
         "name": "Hamburguesa Clásica",
         "price": "950",
         "img": "/images/hamburguesa-clasica.jpg",
@@ -17,7 +17,7 @@
     },
     {
         "id": "03",
-        "categoria": "hamburguesas",
+        "category": "hamburguesas",
         "name": "Hamburguesa Cheddar",
         "price": "950",
         "img": "/images/hamburguesa-cheddar.jpg",
@@ -25,7 +25,7 @@
     },
     {
         "id": "04",
-        "categoria": "hamburguesas",
+        "category": "hamburguesas",
         "name": "Hamburguesa Doble Carne",
         "price": "1550",
         "img": "/images/hamburguesa-doble-carne.jpg",
@@ -33,7 +33,7 @@
     },
     {
         "id": "05",
-        "categoria": "hamburguesas",
+        "category": "hamburguesas",
         "name": "Hamburguesa de Cerdo",
         "price": "950",
         "img": "/images/hamburguesa-de-cerdo.jpg",
@@ -41,7 +41,7 @@
     },
     {
         "id": "06",
-        "categoria": "lomos",
+        "category": "lomos",
         "name": "Lomo Clásico",
         "price": "1350",
         "img": "/images/lomo-clasico.jpg",
@@ -49,7 +49,7 @@
     },
     {
         "id": "07",
-        "categoria": "lomos",
+        "category": "lomos",
         "name": "Lomo Caprese",
         "price": "1350",
         "img": "/images/lomo-caprese.jpg",
@@ -57,7 +57,7 @@
     },
     {
         "id": "08",
-        "categoria": "milanesas",
+        "category": "milanesas",
         "name": "Milanesa Clásica",
         "price": "1300",
         "img": "/images/milanesa-clasica.jpg",
@@ -65,7 +65,7 @@
     },
     {
         "id": "09",
-        "categoria": "milanesas",
+        "category": "milanesas",
         "name": "Milanesa Cheddar",
         "price": "1300",
         "img": "/images/milanesa-cheddar.jpg",
@@ -73,7 +73,7 @@
     },
     {
         "id": "10",
-        "categoria": "otros",
+        "category": "otros",
         "name": "Pollo Clásico",
         "price": "1200",
         "img": "/images/pollo-clasico.jpg",
@@ -81,7 +81,7 @@
     },
     {
         "id": "11",
-        "categoria": "otros",
+        "category": "otros",
         "name": "Bondiola de Cerdo",
         "price": "950",
         "img": "/images/bondiola-de-cerdo.jpg",
@@ -89,7 +89,7 @@
     },
     {
         "id": "12",
-        "categoria": "otros",
+        "category": "otros",
         "name": "Ternera Desmenuzada",
         "price": "1000",
         "img": "/images/ternera-desmenuzada.jpg",
