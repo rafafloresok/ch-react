@@ -15,7 +15,17 @@ export default function ItemListContainer() {
         const queryCollection = collection(db, 'items');
         if (!id) {
             getDocs(queryCollection)
-            .then(resp => setItems(resp.docs.map(el => ({id: el.id, ...el.data()}))))
+            .then(resp => resp.docs.map(el => ({id: el.id, ...el.data()})))
+            .then(data => data.sort((a, b) => {
+                if (a.category > b.category) {
+                    return 1;
+                }
+                if (a.category < b.category) {
+                    return -1;
+                }
+                return 0;
+            }))
+            .then(sorted => setItems(sorted))
             .catch(err => console.log(err))
             .finally(() => setLoader(false))
         } else {
@@ -26,6 +36,8 @@ export default function ItemListContainer() {
             .finally(() => setLoader(false))
         }
     },[id]);
+
+    //console.log(items[0]);
 
     return (
         <div className="itemListContainer">

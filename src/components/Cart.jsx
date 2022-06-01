@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { UseCartContext } from "../context/CartContext";
-import CartItem from "./CartItem";
+import CartList from "./CartList";
 import './Cart.css';
 
 export default function Cart() {
-    const {cartList, clearCart, totalPrice, totalItems} = UseCartContext();
+    const {totalItems} = UseCartContext();
     
     if (!totalItems) {
         return (
@@ -19,10 +19,7 @@ export default function Cart() {
 
     return (
         <div className="cart">
-            <h1 className="cart__title">Su pedido:</h1>
-            {cartList.map(el => <CartItem key={el.id} item={el}/>)}
-            <p>{`Costo total: $${totalPrice}`}</p>
-            <button onClick={clearCart}>Vaciar pedido</button>
+            <CartList/>
         </div>
     );
 }
