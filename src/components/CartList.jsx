@@ -2,7 +2,7 @@ import { UseCartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
 import './CartList.css';
 
-export default function CartList() {
+export default function CartList({createOrder}) {
     const {cartList, clearCart, totalPrice} = UseCartContext();
 
     return (
@@ -11,6 +11,7 @@ export default function CartList() {
             {cartList.map((el) => <CartItem key={el.id} item={el}/>)}
             <p>{`Costo total: $${totalPrice}`}</p>
             <button onClick={clearCart}>Vaciar pedido</button>
+            <button onClick={createOrder}>Enviar pedido</button>
         </div>
     );
 }

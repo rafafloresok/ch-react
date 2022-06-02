@@ -36,9 +36,7 @@ export default function ItemListContainer() {
             .finally(() => setLoader(false))
         }
     },[id]);
-
-    //console.log(items[0]);
-
+    
     return (
         <div className="itemListContainer">
             {loader?
