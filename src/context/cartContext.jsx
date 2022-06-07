@@ -45,11 +45,11 @@ export default function CartContextProv({children}) {
             .reduce((acc,curr) => acc+curr,0)
         );
     }
-    function createOrder() {
+    function createOrder(customerData) {
         let order = {};
         
-        order.buyer = {name: 'Rafa', email: 'rafafloresok@gmail.com', phone: '2964603008' };
-        order.total = totalPrice;
+        order.customerData = customerData;
+        order.totalPrice = totalPrice;
         order.items = cartList.map(item => {
             const id = item.id;
             const name = item.name;

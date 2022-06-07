@@ -8,9 +8,9 @@ export default function Cart() {
     const {totalItems, orderId, createOrder} = UseCartContext();
     const [orderSent, setOrderSent] = useState(false)
 
-    function sendOrderManage() {
+    function sendOrderManage(customerData) {
         setOrderSent(true);
-        createOrder();
+        createOrder(customerData);
     }
     
     if (!totalItems) {
