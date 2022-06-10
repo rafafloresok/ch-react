@@ -13,12 +13,13 @@ export default function CartContextProv({children}) {
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalItems, setTotalItems] = useState(0);
     const [orderId, setOrderId] = useState();
+    const [qtyInCart, setQtyInCart] = useState(0);
 
-    function isInCart(id) {
-        return cartList.some(el => el.id === id);
+    function isInCart(item) {
+        return cartList.some(el => el.id === item.id);
     }
     function addToCart(item) {
-        if (isInCart(item.id)) {
+        if (isInCart(item)) {
             let i = cartList.findIndex(el => el.id === item.id);
             const newCartList = cartList;
             newCartList[i].quantity += item.quantity;
@@ -44,6 +45,14 @@ export default function CartContextProv({children}) {
             .map(curr => curr.quantity)
             .reduce((acc,curr) => acc+curr,0)
         );
+    }
+    function checkStock(item) {
+        if (isInCart(item)) {
+            let i = cartList.findIndex(el => el.id === item.id);
+            setQtyInCart(cartList[i].quantity);
+        } else {
+            setQtyInCart(0);
+        }
     }
     function createOrder(customerData) {
         let order = {};
@@ -88,10 +97,13 @@ export default function CartContextProv({children}) {
             totalPrice,
             totalItems,
             orderId,
+            qtyInCart,
             addToCart,
             clearCart,
             clearItem,
-            createOrder
+            createOrder,
+            isInCart,
+            checkStock
         }}>
             {children}
         </cartContext.Provider>

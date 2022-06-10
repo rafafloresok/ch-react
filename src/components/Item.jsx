@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import './Item.css';
 
-export default function Item({el}) {
+export default function Item({item}) {
 
     return (
         <div className="item">
-            <img className="item__img" src={el.img} alt="" />
-            <div className="item__filter"></div>
+            <img className="item__img" src={item.img} alt="" style={{filter: item.stock <= 0 && 'grayscale(100%)'}}/>
+            <div className='item__filter'></div>
             <div className='item__info'>
-                <p className='item__category'>{el.category}</p>
-                <h3 className="item__title">{el.name}</h3>
-                <p className='item__price'>{`Precio: $${el.price}`}</p>
-                <Link to={`/itemDetail/${el.id}`}>
-                    <button className="item__addBtn" >Agregar al pedido</button>
+                <p className='item__category'>{item.category}</p>
+                <h3 className="item__title">{item.name}</h3>
+                <p className='item__price'>{`Precio: $${item.price}`}</p>
+                <Link to={`/itemDetail/${item.id}`} style={{pointerEvents: item.stock <= 0 && 'none'}}>
+                    <button className="item__addBtn" >{item.stock <= 0 ? 'No disponible' : 'Ver detalle'}</button>
                 </Link>
             </div>
         </div>

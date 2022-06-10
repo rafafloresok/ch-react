@@ -9,7 +9,7 @@ export default function ItemDetailContainer() {
     const [item,setItem] = useState({});
     const [loader,setLoader] = useState(true);
     const {id} = useParams();
-
+    
     useEffect(() => {
         const db = getFirestore();
         const dbQuery = doc(db, 'items', id);
