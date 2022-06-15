@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { UseCartContext } from "../context/CartContext";
+
 import CartItem from "./CartItem";
+
 import './CartList.css';
 
 export default function CartList({sendOrderManage}) {

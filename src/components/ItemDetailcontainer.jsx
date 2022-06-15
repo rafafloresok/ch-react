@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+
 import ItemDetail from "./ItemDetail";
 import Loader from "./Loader";
+
 import './ItemDetailContainer.css';
 
 export default function ItemDetailContainer() {
@@ -21,9 +23,7 @@ export default function ItemDetailContainer() {
 
     return (
         <div className="itemDetailContainer">
-            {loader?
-                <Loader/>:
-                <ItemDetail item={item}/>}
+            {loader ? <Loader/> : <ItemDetail item={item}/>}
         </div>
     );
 }

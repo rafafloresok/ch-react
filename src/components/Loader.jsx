@@ -1,4 +1,5 @@
 import logoGrande from '../images/logo_grande.jpg';
+
 import './Loader.css';
 
 export default function Loader() {

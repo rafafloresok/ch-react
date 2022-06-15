@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UseCartContext } from "../context/CartContext";
+
 import CartList from "./CartList";
+
 import './Cart.css';
 
 export default function Cart() {
     const {totalItems, orderId, createOrder} = UseCartContext();
-    const [orderSent, setOrderSent] = useState(false)
+    const [orderSent, setOrderSent] = useState(false);
 
     function sendOrderManage(customerData) {
         setOrderSent(true);

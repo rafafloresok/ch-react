@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import './BuyButtons.css';
 
 export default function BuyButtons() {

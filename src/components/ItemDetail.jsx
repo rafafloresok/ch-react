@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { UseCartContext } from "../context/CartContext";
+
 import ItemCount from "./ItemCount";
 import BuyButtons from "./BuyButtons";
+
 import './ItemDetail.css';
 
 export default function ItemDetail({item}) {
@@ -19,9 +21,7 @@ export default function ItemDetail({item}) {
             <div className='itemDetail__info'>
                 <h3 className="itemDetail__title">{item.name}</h3>
                 <p className="itemDetail__detail">{item.detail}</p>
-                {inputType === 'itemCount' ?
-                    <ItemCount stock={item.stock - qtyInCart} onAdd={onAdd}/>:
-                    <BuyButtons/>}
+                {inputType === 'itemCount' ? <ItemCount stock={item.stock - qtyInCart} onAdd={onAdd}/> : <BuyButtons/>}
             </div>
         </div>
     );

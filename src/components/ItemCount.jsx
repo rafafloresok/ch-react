@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import './ItemCount.css';
 
 export default function ItemCount({stock, onAdd}) {
