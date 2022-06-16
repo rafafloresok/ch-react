@@ -10,6 +10,9 @@ export default function Cart() {
     const {totalItems, orderId, createOrder} = UseCartContext();
     const [orderSent, setOrderSent] = useState(false);
 
+    /* --------------- */
+    /* PASAR A CONTEXT */
+    /* --------------- */
     function sendOrderManage(customerData) {
         setOrderSent(true);
         createOrder(customerData);
@@ -18,6 +21,9 @@ export default function Cart() {
     if (!totalItems) {
         return (
             <div className="cart">
+                {/* ---------------- */}
+                {/* HACER COMPONENTE */}
+                {/* ---------------- */}
                 {orderSent ? <h1>Pedido enviado! Nro de pedido: {orderId}</h1> : <h1>El pedido está vacío</h1>}
                 <Link to='/'>
                     <button>Volver al menú</button>
