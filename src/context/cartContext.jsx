@@ -11,7 +11,7 @@ export default function CartContextProv({children}) {
     const [cartList, setCartList] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalItems, setTotalItems] = useState(0);
-    const [orderId, setOrderId] = useState();
+    const [orderId, setOrderId] = useState('');
     const [qtyInCart, setQtyInCart] = useState(0);
 
     function isInCart(item) {
@@ -27,11 +27,13 @@ export default function CartContextProv({children}) {
             updateCart([...cartList,item]);
         }
     }
-    function clearCart() {
+    function clearCart(sent) {
+        if(sent !== 'sent') setOrderId('');
         updateCart([]);
     }
-    function clearItem(id) {
-        const newCartList = cartList.filter(el => el.id !== id);
+    function clearItem(item) {
+        setOrderId('');
+        const newCartList = cartList.filter(el => el.id !== item.id);
         updateCart(newCartList);
     }
     function updateCart(arr) {
@@ -45,7 +47,7 @@ export default function CartContextProv({children}) {
             .reduce((acc,curr) => acc+curr,0)
         );
     }
-    function checkStock(item) {
+    function checkQtyInCart(item) {
         if (isInCart(item)) {
             let i = cartList.findIndex(el => el.id === item.id);
             setQtyInCart(cartList[i].quantity);
@@ -87,7 +89,7 @@ export default function CartContextProv({children}) {
         .then(resp => setOrderId(resp.id))
         .then(() => updateStocks())
         .catch(err => console.log(err))
-        .finally(() => clearCart())
+        .finally(() => clearCart('sent'))
     };
 
     return (
@@ -102,7 +104,7 @@ export default function CartContextProv({children}) {
             clearItem,
             createOrder,
             isInCart,
-            checkStock
+            checkQtyInCart
         }}>
             {children}
         </cartContext.Provider>

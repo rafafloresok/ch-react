@@ -3,28 +3,27 @@ import { UseCartContext } from "../context/CartContext";
 
 import './CartForm.css';
 
-export default function CartForm ({sendOrderManage}) {
+export default function CartForm () {
     const [customerData, setCustomerData] = useState({});
     const [nameError, setNameError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [email2Error, setEmail2Error] = useState(false);
-    const {clearCart} = UseCartContext();
+    const {clearCart, createOrder} = UseCartContext();
 
-    function handleChange(e) {
+    const handleChange = (e) => {
         setCustomerData({
             ...customerData,
             [e.target.name]: e.target.value
         });
     }
-
-    function dataManage() {
+    const dataManage = () => {
         setNameError(!customerData.name);
         setPhoneError(!customerData.phone);
         setEmailError(!customerData.email);
         setEmail2Error(!(customerData.email2 === customerData.email));
         if (customerData.name && customerData.phone && customerData.email && (customerData.email2 === customerData.email)) {
-            sendOrderManage(customerData);
+            createOrder(customerData);
         }
     }
 

@@ -5,7 +5,7 @@ import CartForm from "./CartForm";
 
 import './CartList.css';
 
-export default function CartList({sendOrderManage}) {
+export default function CartList() {
     const {cartList, totalPrice} = UseCartContext();
 
     return (
@@ -13,7 +13,7 @@ export default function CartList({sendOrderManage}) {
             <h1 className="cart__title">Su pedido:</h1>
             {cartList.map((el) => <CartItem key={el.id} item={el}/>)}
             <p>{`Costo total: $${totalPrice}`}</p>
-            <CartForm sendOrderManage={sendOrderManage}/>
+            <CartForm/>
         </div>
     );
 }
