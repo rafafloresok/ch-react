@@ -10,9 +10,12 @@ export default function CartList() {
 
     return (
         <div className="cartList">
-            <h1 className="cart__title">Su pedido:</h1>
-            {cartList.map((el) => <CartItem key={el.id} item={el}/>)}
-            <p>{`Costo total: $${totalPrice}`}</p>
+            <h1 className="cartList__title">Su pedido:</h1>
+            <ul className="cartList__list">
+                {cartList.map((el) => <CartItem key={el.id} item={el}/>)}
+            </ul>
+            <p className="cartList__total-price">{`Costo total: $${totalPrice}`}</p>
+            <hr />
             <CartForm/>
         </div>
     );

@@ -1,7 +1,32 @@
-li {
-    font-size: 2rem;
+.cartItem {
+    list-style: none;
+    font-size: 1.5rem;
     margin: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
 }
-.cart__remove-icon {
+.cartItem span {
+    margin-bottom: 1rem;
+}
+.cartItem__name {
+    width: 90%;
+    font-size: 2rem;
+}
+.cartItem__quantity {
+    width: 30%;
+}
+.cartItem__subtotal {
+    width: 30%;
+}
+.cartItem__remove-icon {
     cursor: pointer;
+    width: 30%;
+    color: red;
+    font-size: 2rem;
+}
+hr {
+    width: 90%;
 }

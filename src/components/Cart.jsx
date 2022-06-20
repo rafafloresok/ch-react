@@ -6,7 +6,7 @@ import CartEmpty from "./CartEmpty";
 import './Cart.css';
 
 export default function Cart() {
-    const {totalItems/* , orderId */} = UseCartContext();
+    const {totalItems} = UseCartContext();
     
     if (!totalItems) {
         return (

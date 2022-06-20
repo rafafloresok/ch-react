@@ -1,11 +1,30 @@
-.cartList { 
-    text-align: center;
+.cartList {
+    min-height: calc(100vh - 89px);
+    background-color: #1c1c1c;
+    color: white;
+    border-top: 2px solid white;
 }
-h1 {
-    font-size: 3rem;
-    margin: 1rem;
-}
-p {
+.cartList__title {
     font-size: 2rem;
     margin: 1rem;
+    text-decoration: underline;
+}
+.cartList__total-price {
+    font-size: 2rem;
+    margin: 1rem;
+}
+hr {
+    margin: auto;
+}
+
+@media (min-width: 600px) {
+    .cartList{
+        min-height: calc(100vh - 49.5px);
+    }
+}
+
+@media (min-width: 768px) {
+    .cartList{
+        min-height: calc(100vh - 59.5px);
+    }
 }
