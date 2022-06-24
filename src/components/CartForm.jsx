@@ -17,7 +17,7 @@ export default function CartForm () {
             [e.target.name]: e.target.value
         });
     }
-    const dataManage = () => {
+    const sendOrder = () => {
         setNameError(!customerData.name);
         setPhoneError(!customerData.phone);
         setEmailError(!customerData.email);
@@ -42,7 +42,7 @@ export default function CartForm () {
                 <textarea className="cartForm__textarea" name="comment" onChange={(e) => handleChange(e)} id="" cols="30" rows="10" placeholder="Escriba aquí sus comentarios..." ></textarea>
             </form>
             <button className="cartForm__button" onClick={clearCart}>Vaciar pedido</button>
-            <button className="cartForm__button" onClick={dataManage}>Enviar pedido</button>
+            <button className="cartForm__button" onClick={sendOrder}>Enviar pedido</button>
         </div>
     );
 }

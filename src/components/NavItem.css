@@ -1,0 +1,9 @@
+.navBar__item {
+    margin: 0.3rem;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.navBar__item:hover {
+    opacity: 80%;
+}

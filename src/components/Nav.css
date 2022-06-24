@@ -1,0 +1,25 @@
+.navBar {
+    width: calc(100% - 11rem);
+    max-width: 640px;
+    text-align: center;
+}
+.navBar__list {
+    font-size: 1.3rem;
+    font-weight: bold;
+    list-style: none;
+}
+
+@media (min-width: 600px) {
+    .navBar__list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .navBar__list {
+        font-size: 2rem;
+    }
+}
