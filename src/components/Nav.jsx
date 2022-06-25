@@ -10,7 +10,7 @@ export default function Nav() {
     const [loader,setLoader] = useState(true);
 
     useEffect(() => {
-        dbQuery('categories', false, setCategories, setLoader);
+        dbQuery('categories', false, 'name', setCategories, setLoader);
     },[]);
 
     return (

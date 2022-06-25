@@ -13,7 +13,7 @@ export default function ItemListContainer() {
     const {id} = useParams();
 
     useEffect(() => {
-        dbQuery('items', id, setItems, setLoader);
+        dbQuery('items', id, 'category', setItems, setLoader);
     },[id]);
     
     return (

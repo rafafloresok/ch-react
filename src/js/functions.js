@@ -1,6 +1,6 @@
 import { collection, getDocs, getFirestore, where, query } from 'firebase/firestore';
 
-export function dbQuery(collectionName, collectionFilter, setState, setLoader) {
+export function dbQuery(collectionName, collectionFilter, sortKey, setState, setLoader) {
     const db = getFirestore();
         const queryCollection = collection(db, collectionName);
         const queryCollectionFilter = collectionFilter?
@@ -10,8 +10,8 @@ export function dbQuery(collectionName, collectionFilter, setState, setLoader) {
         getDocs(queryCollectionFilter)
         .then(resp => resp.docs.map(el => ({id: el.id, ...el.data()})))
         .then(data => data.sort((a, b) => {
-            if (a.category > b.category) {return 1};
-            if (a.category < b.category) {return -1};
+            if (a[sortKey] > b[sortKey]) {return 1};
+            if (a[sortKey] < b[sortKey]) {return -1};
             return 0;
         }))
         .then(sorted => setState(sorted))
