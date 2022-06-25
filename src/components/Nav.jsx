@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { dbQuery } from "../js/functions";
+import { dbQueryCollection } from "../js/functions";
 
 import NavItem from "./NavItem";
 
@@ -10,7 +10,7 @@ export default function Nav() {
     const [loader,setLoader] = useState(true);
 
     useEffect(() => {
-        dbQuery('categories', false, 'name', setCategories, setLoader);
+        dbQueryCollection('categories', false, 'name', setCategories, setLoader);
     },[]);
 
     return (

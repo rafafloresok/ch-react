@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { addDoc, collection, getFirestore, where, query, documentId, writeBatch, getDocs } from "firebase/firestore";
 
 const cartContext = createContext([]);
 
@@ -55,42 +54,6 @@ export default function CartContextProv({children}) {
             setQtyInCart(0);
         }
     }
-    function createOrder(customerData) {
-        let order = {};
-        
-        order.customerData = customerData;
-        order.totalPrice = totalPrice;
-        order.items = cartList.map(item => {
-            const id = item.id;
-            const name = item.name;
-            const quantity = item.quantity;
-            const newStock = item.stock-item.quantity;
-            const price = item.price*item.quantity;
-            return {id, name, quantity, newStock, price}
-        });
-
-        async function updateStocks() {
-            const queryCollectionStocks = collection(db, 'items');
-            const queryUpdateStocks = query(queryCollectionStocks, where(documentId(), 'in', cartList.map(item => item.id)));
-            const batch = writeBatch(db);
-    
-            await getDocs(queryUpdateStocks)
-            .then(resp => resp.docs.forEach(
-                res => batch.update(res.ref, {stock: order.items.find(item => item.id === res.id).newStock})
-            ))
-            .catch(err => console.log(err))
-    
-            batch.commit()
-        }
-    
-        const db = getFirestore();
-        const queryCollectionOrders = collection(db, 'orders');
-        addDoc(queryCollectionOrders, order)
-        .then(resp => setOrderId(resp.id))
-        .then(() => updateStocks())
-        .catch(err => console.log(err))
-        .finally(() => clearCart('sent'))
-    };
 
     return (
         <cartContext.Provider value={{
@@ -102,9 +65,9 @@ export default function CartContextProv({children}) {
             addToCart,
             clearCart,
             clearItem,
-            createOrder,
             isInCart,
-            checkQtyInCart
+            checkQtyInCart,
+            setOrderId
         }}>
             {children}
         </cartContext.Provider>

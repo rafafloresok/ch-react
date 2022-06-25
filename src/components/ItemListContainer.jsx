@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { dbQuery } from "../js/functions";
+import { dbQueryCollection } from "../js/functions";
 
 import ItemList from "./ItemList";
 import Loader from "./Loader";
@@ -13,7 +13,7 @@ export default function ItemListContainer() {
     const {id} = useParams();
 
     useEffect(() => {
-        dbQuery('items', id, 'category', setItems, setLoader);
+        dbQueryCollection('items', id, 'category', setItems, setLoader);
     },[id]);
     
     return (
