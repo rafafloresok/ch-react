@@ -1,9 +1,17 @@
 .navBar__item {
-    margin: 0.3rem;
+    margin: 3rem 0rem;
     color: white;
+    text-transform: uppercase;
+    text-decoration: none;
     text-transform: uppercase;
     text-decoration: none;
 }
 .navBar__item:hover {
     opacity: 80%;
+}
+
+@media (min-width: 768px) {
+    .navBar__item {
+        margin: 0;
+    }
 }

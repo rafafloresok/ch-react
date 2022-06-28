@@ -1,7 +1,8 @@
 .itemList {
     width: 100%;
-    min-height: calc(100vh - 135px);
+    min-height: calc(100vh - 50px);
     padding: 1rem;
+    padding-top: 60px;
     display: flex;
     flex-flow: row wrap;
     align-content: center;
@@ -9,14 +10,9 @@
     background-color: #008f39;
 }
 
-@media (min-width: 600px) {
-    .itemList {
-        min-height: calc(100vh - 100px);
-    }
-}
-
 @media (min-width: 768px) {
     .itemList {
-        min-height: calc(100vh - 110px);
+        min-height: calc(100vh - 60px);
+        padding-top: 70px;
     }
 }
