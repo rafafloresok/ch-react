@@ -1,8 +1,9 @@
 .cartList {
-    min-height: calc(100vh - 89px);
+    min-height: calc(100vh - 135px);
     background-color: #1c1c1c;
     color: white;
     border-top: 2px solid white;
+    border-bottom: 2px solid white;
 }
 .cartList__title {
     font-size: 2rem;
@@ -19,12 +20,12 @@ hr {
 
 @media (min-width: 600px) {
     .cartList{
-        min-height: calc(100vh - 49.5px);
+        min-height: calc(100vh - 100px);
     }
 }
 
 @media (min-width: 768px) {
     .cartList{
-        min-height: calc(100vh - 59.5px);
+        min-height: calc(100vh - 110px);
     }
 }

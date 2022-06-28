@@ -1,10 +1,11 @@
 .cartEmpty{
     width: 100%;
-    height: calc(100vh - 89px);
+    min-height: calc(100vh - 135px);
     text-align: center;
     background-color: #1c1c1c;
     color: white;
     border-top: 2px solid white;
+    border-bottom: 2px solid white;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -26,12 +27,12 @@
 
 @media (min-width: 600px) {
     .cartEmpty{
-        height: calc(100vh - 49.5px);
+        min-height: calc(100vh - 100px);
     }
 }
 
 @media (min-width: 768px) {
     .cartEmpty{
-        height: calc(100vh - 59.5px);
+        min-height: calc(100vh - 110px);
     }
 }

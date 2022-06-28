@@ -1,6 +1,6 @@
 .itemListContainer {
     width: 100%;
-    min-height: calc(100vh - 85px);
+    min-height: calc(100vh - 135px);
     display: flex;
     flex-flow: row wrap;
     align-content: center;
@@ -9,12 +9,12 @@
 
 @media (min-width: 600px) {
     .itemListContainer {
-        min-height: calc(100vh - 50px);
+        min-height: calc(100vh - 100px);
     }
 }
 
 @media (min-width: 768px) {
     .itemListContainer {
-        min-height: calc(100vh - 59px);
+        min-height: calc(100vh - 110px);
     }
 }
