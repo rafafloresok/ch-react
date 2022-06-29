@@ -6,9 +6,3 @@
     align-content: center;
     justify-content: center;
 }
-
-@media (min-width: 768px) {
-    .itemListContainer {
-        min-height: calc(100vh - 60px);
-    }
-}

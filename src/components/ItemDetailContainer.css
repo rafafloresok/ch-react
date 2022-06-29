@@ -1,21 +1,9 @@
 .itemDetailContainer {
     width: 100vw;
-    min-height: calc(100vh - 135px);
+    min-height: calc(100vh - 50px);
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
     overflow-y: scroll;
-}
-
-@media (min-width: 600px) {
-    .itemDetailContainer {
-        min-height: calc(100vh - 100px);
-    }
-}
-
-@media (min-width: 768px) {
-    .itemDetailContainer {
-        min-height: calc(100vh - 110px);
-    }
 }

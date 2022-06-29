@@ -4,9 +4,9 @@ import logo from '../images/logo.jpg';
 import Nav from "./Nav";
 import CartWidget from './CartWidget';
 
-import './NavBar.css';
+import './Header.css';
 
-export default function NavBar() {
+export default function Header() {
     return (
         <header className="header">
             <Link to='/'>

@@ -1,6 +1,7 @@
 .cartEmpty{
-    width: 100%;
-    min-height: calc(100vh - 135px);
+    width: 100vw;
+    height: calc(100vh - 100px);
+    margin-top: 50px;
     text-align: center;
     background-color: #1c1c1c;
     color: white;
@@ -25,14 +26,9 @@
     margin: 1rem;
 }
 
-@media (min-width: 600px) {
-    .cartEmpty{
-        min-height: calc(100vh - 100px);
-    }
-}
-
 @media (min-width: 768px) {
     .cartEmpty{
-        min-height: calc(100vh - 110px);
+        height: calc(100vh - 110px);
+        margin-top: 60px;
     }
 }

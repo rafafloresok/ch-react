@@ -3,8 +3,6 @@
     color: white;
     text-transform: uppercase;
     text-decoration: none;
-    text-transform: uppercase;
-    text-decoration: none;
 }
 .navBar__item:hover {
     opacity: 80%;

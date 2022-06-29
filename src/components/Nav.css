@@ -1,51 +1,46 @@
 .navBar {
-    width: calc(100% - 11rem);
-    max-width: 640px;
-    text-align: center;
-    z-index: 4;
-}
-.navBar__list {
-    display: none;
+    width: 100%;
+    max-width: 700px;
     z-index: 3;
-    font-weight: bold;
-    list-style: none;
-    background-color: #1c1c1c;
-    flex-flow: column nowrap;
-    width: 100vw;
-    height: 100vh;
-    top: 50px;
-    left: 0;
-    justify-content: center;
-    font-size: 3rem;
-    position: fixed;
-    height: calc(100vh - 50px);
-    opacity: 0.85;
+    text-align: center;
 }
 .navBar__toggleBtn {
+    z-index: 3;
     background-color: #1c1c1c;
     color: white;
     font-size: 3rem;
     border: none;
     cursor: pointer;
-    z-index: 5;
+}
+.navBar__list {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    top: 50px;
+    left: 0;
+    z-index: 3;
+    background-color: rgba(28, 28, 28, 0.9);
+    list-style: none;
+    font-weight: bold;
+    font-size: 3rem;
+    flex-flow: column nowrap;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
+    .navBar__toggleBtn {
+        display: none;
+    }
     .navBar__list {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
+        flex-flow: row nowrap;
+        justify-content: space-around;
         font-size: 2rem;
         position: relative;
         height: 100%;
         width: 90%;
         top: 0;
         margin: auto;
-    }
-    .navBar__toggleBtn {
-        display: none;
-    }
-    .navBar__list {
-        font-size: 2rem;
     }
 }
