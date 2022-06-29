@@ -6,4 +6,11 @@
     align-content: center;
     justify-content: center;
     overflow-y: scroll;
+    padding-top: 50px;
+}
+
+@media (min-width: 768px) {
+    .itemDetailContainer {
+        padding-top: 60px;
+    }
 }
