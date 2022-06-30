@@ -1,10 +1,12 @@
 .navBar {
+    position: relative;
     width: 100%;
     max-width: 700px;
-    z-index: 3;
+    z-index: 4;
     text-align: center;
 }
 .navBar__toggleBtn {
+    position: relative;
     z-index: 3;
     background-color: #1c1c1c;
     color: white;
@@ -15,11 +17,11 @@
 .navBar__list {
     display: none;
     position: fixed;
+    z-index: 3;
     width: 100vw;
     height: calc(100vh - 50px);
     top: 50px;
     left: 0;
-    z-index: 3;
     background-color: rgba(28, 28, 28, 0.9);
     list-style: none;
     font-weight: bold;
@@ -42,5 +44,28 @@
         width: 90%;
         top: 0;
         margin: auto;
+    }
+}
+
+.out-to-right {
+    animation: to-right 0.8s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes to-right {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.in-from-right {
+    animation: from-right 0.8s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes from-right {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
     }
 }
