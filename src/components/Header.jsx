@@ -7,6 +7,7 @@ import CartWidget from './CartWidget';
 import './Header.css';
 
 export default function Header() {
+
     return (
         <header className="header">
             <Link to='/'>

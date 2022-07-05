@@ -1,16 +1,10 @@
 .itemDetailContainer {
     width: 100vw;
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 60px);
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
     overflow-y: scroll;
-    padding-top: 50px;
-}
-
-@media (min-width: 768px) {
-    .itemDetailContainer {
-        padding-top: 60px;
-    }
+    padding-top: 60px;
 }

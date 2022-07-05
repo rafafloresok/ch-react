@@ -12,6 +12,7 @@
 .cartForm__error {
     color: red;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 .cartForm__button {
     border: none;

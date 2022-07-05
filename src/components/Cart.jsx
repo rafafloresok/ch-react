@@ -5,20 +5,15 @@ import CartEmpty from "./CartEmpty";
 
 import './Cart.css';
 
-export default function Cart() {
+export default function Cart({toggleCart}) {
     const {totalItems} = UseCartContext();
-    
-    if (!totalItems) {
-        return (
-            <div className="cart">
-                <CartEmpty />
-            </div>
-        );
-    }
 
     return (
-        <div className="cart">
-            <CartList/>
-        </div>
+        <>
+            {totalItems?
+                <CartList/>:
+                <CartEmpty toggleCart={toggleCart}/>
+            }
+        </>
     );
 }
