@@ -20,7 +20,7 @@ export default function ItemListContainer() {
         <div className="itemListContainer">
             {loader?
                 <Loader/>:
-                <ItemList items={items}/>
+                <ItemList items={items} category={id}/>
             }
         </div>
     );
