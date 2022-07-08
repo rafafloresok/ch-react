@@ -16,7 +16,7 @@ export default function Nav() {
     const toggleNav = () => {breakpoint >= window.innerWidth && toggleElement(navList)};
 
     useEffect(() => {
-        dbQueryCollection('categories', false, 'name', setCategories, setLoader);
+        dbQueryCollection('categories', false, 'displayOrder', setCategories, setLoader);
         navList.current.id = 'isOut';
     },[]);
 

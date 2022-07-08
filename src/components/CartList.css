@@ -19,3 +19,26 @@
 hr {
     margin: auto;
 }
+.cartForm-container {
+    display: none;
+}
+.cartList__endBtn {
+    border: none;
+    background: #008f39;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    margin: 1rem;
+}
+.cartList__cleanBtn {
+    border: none;
+    background: red;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    margin: 1rem;
+}

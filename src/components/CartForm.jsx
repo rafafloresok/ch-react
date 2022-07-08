@@ -47,7 +47,6 @@ export default function CartForm () {
                     {email2Error && <span className="cartForm__error">El correo electrónico no coincide</span>}
                     <textarea className="cartForm__textarea" name="comment" onChange={(e) => handleChange(e)} id="" cols="30" rows="10" placeholder="Escriba aquí sus comentarios..." ></textarea>
                 </form>
-                <button className="cartForm__button" onClick={clearCart}>Vaciar pedido</button>
                 <button className="cartForm__button" onClick={sendOrder}>Enviar pedido</button>
             </div>
         </>

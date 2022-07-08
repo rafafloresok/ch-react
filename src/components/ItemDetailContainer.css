@@ -1,6 +1,6 @@
 .itemDetailContainer {
     width: 100vw;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 50px);
     display: flex;
     flex-flow: row wrap;
     align-content: center;
