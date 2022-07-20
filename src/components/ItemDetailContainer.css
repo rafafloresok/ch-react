@@ -1,10 +1,11 @@
 .itemDetailContainer {
     width: 100vw;
-    min-height: calc(100vh - 50px);
+    height: calc(100vh - 50px);
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
     overflow-y: scroll;
-    padding-top: 60px;
+    padding: 1rem;
+    padding-top: 70px;
 }

@@ -4,8 +4,29 @@
     padding: 1rem;
     padding-top: 70px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     align-content: center;
     justify-content: center;
     background-color: #008f39;
+}
+.itemList__empty-list-message {
+    text-align: center;
+}
+.subList__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+.subList__items-container {
+    margin-bottom: 1rem;
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+}
+
+@media (min-width: 768px) {
+    .subList__items-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

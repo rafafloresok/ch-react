@@ -7,6 +7,8 @@
     overflow: hidden;
     margin: 1rem;
     box-shadow: 0px 0px 10px black;
+    flex-shrink: 0;
+    scroll-snap-align: center;
 }
 .item__filter {
     width: 100%;
