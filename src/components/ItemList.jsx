@@ -16,7 +16,7 @@ export default function ItemList({items}) {
                 <h1 className="itemList__empty-list-message">Proximamente vas a poder disfrutar esta nueva especialidad!</h1>:
                 <>
                     {categories.map((item) => 
-                        <div className="subList">
+                        <div key={item.id} className="subList">
                             <div className="subList__title-container">
                                 <h2 className="subList__title">{item}</h2>
                             </div>

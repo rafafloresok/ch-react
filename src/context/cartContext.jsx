@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { collection, getDoc, doc, getDocs, getFirestore, where, query, documentId, writeBatch, addDoc } from 'firebase/firestore';
 
 const cartContext = createContext([]);
 
@@ -12,10 +13,14 @@ export default function CartContextProv({children}) {
     const [totalItems, setTotalItems] = useState(0);
     const [orderId, setOrderId] = useState('');
     const [qtyInCart, setQtyInCart] = useState(0);
+    const [contCategories, setContCategories] = useState([]);
+    const [contItems, setContItems] = useState([]);
+    const [contLoader, setContLoader] = useState(false);
 
     function isInCart(item) {
         return cartList.some(el => el.id === item.id);
     }
+
     function addToCart(item) {
         if (isInCart(item)) {
             let i = cartList.findIndex(el => el.id === item.id);
@@ -26,15 +31,18 @@ export default function CartContextProv({children}) {
             updateCart([...cartList,item]);
         }
     }
+
     function clearCart(sent) {
         if(sent !== 'sent') setOrderId('');
         updateCart([]);
     }
+
     function clearItem(item) {
         setOrderId('');
         const newCartList = cartList.filter(el => el.id !== item.id);
         updateCart(newCartList);
     }
+
     function updateCart(arr) {
         setCartList(arr);
         setTotalPrice(arr
@@ -46,6 +54,7 @@ export default function CartContextProv({children}) {
             .reduce((acc,curr) => acc+curr,0)
         );
     }
+
     function checkQtyInCart(item) {
         if (isInCart(item)) {
             let i = cartList.findIndex(el => el.id === item.id);
@@ -54,6 +63,7 @@ export default function CartContextProv({children}) {
             setQtyInCart(0);
         }
     }
+
     function toggleElement(element) {
         if (element.current.id === 'isOut') {
             element.current.id = 'isIn';
@@ -72,6 +82,38 @@ export default function CartContextProv({children}) {
         }
     }
 
+    function contDbQueryCollection(collectionName, collectionFilter, sortKey, setOwnLoader) {
+        setOwnLoader ? setOwnLoader(true) : setContLoader(true);
+        
+        const db = getFirestore();
+        const queryCollection = collection(db, collectionName);
+        const queryCollectionFilter = collectionFilter?
+            query(queryCollection, where('category','==',collectionFilter)):
+            queryCollection;
+        
+        getDocs(queryCollectionFilter)
+        .then(resp => resp.docs.map(el => ({id: el.id, ...el.data()})))
+        .then(data => data.sort((a, b) => {
+            if (a[sortKey] > b[sortKey]) {return 1};
+            if (a[sortKey] < b[sortKey]) {return -1};
+            return 0;
+        }))
+        .then(sorted => {switch (collectionName) {
+            case 'categories':
+                setContCategories(sorted);
+                break;
+            case 'items':
+                setContItems(sorted);
+                break;
+            default:
+                console.log('invalid collection name');
+        }})
+        .catch(err => console.log(err))
+        .finally(() => setOwnLoader ? setOwnLoader(false) : setTimeout(() => {setContLoader(false)}, 1000))
+    }
+
+    
+
     return (
         <cartContext.Provider value={{
             cartList,
@@ -79,6 +121,9 @@ export default function CartContextProv({children}) {
             totalItems,
             orderId,
             qtyInCart,
+            contCategories,
+            contItems,
+            contLoader,
             addToCart,
             clearCart,
             clearItem,
@@ -86,6 +131,7 @@ export default function CartContextProv({children}) {
             checkQtyInCart,
             setOrderId,
             toggleElement,
+            contDbQueryCollection
         }}>
             {children}
         </cartContext.Provider>

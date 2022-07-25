@@ -1,7 +1,7 @@
 .loader {
     width: 100vw;
     height: 100vh;
-    z-index: 4;
+    z-index: 5;
     background-color: rgba(0,0,0,0.8);
     position: fixed;
     display: flex;

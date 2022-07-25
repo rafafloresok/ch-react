@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { dbQueryCollection } from "../js/functions";
+import { UseCartContext } from "../context/CartContext";
 
 import ItemList from "./ItemList";
-import Loader from "./Loader";
 
 import './ItemListContainer.css';
 
 export default function ItemListContainer() {
-    const [items,setItems] = useState([]);
-    const [loader,setLoader] = useState(true);
+    const {contDbQueryCollection, contItems} = UseCartContext();
     const {id} = useParams();
 
     useEffect(() => {
-        dbQueryCollection('items', id, 'category', setItems, setLoader);
+        contDbQueryCollection('items', id, 'category');
     },[id]);
+
     
     return (
         <div className="itemListContainer">
-            {loader?
-                <Loader/>:
-                <ItemList items={items}/>
-            }
+            {contItems.length && <ItemList items={contItems}/>}           
         </div>
     );
 }
