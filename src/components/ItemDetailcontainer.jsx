@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { dbQueryDoc } from "../js/functions";
+import { UseCartContext } from "../context/CartContext";
 
 import ItemDetail from "./ItemDetail";
-import Loader from "./Loader";
 
 import './ItemDetailContainer.css';
 
 export default function ItemDetailContainer() {
-    const [item,setItem] = useState({});
-    const [loader,setLoader] = useState(true);
+    const {dbQueryDoc} = UseCartContext();
     const {id} = useParams();
-    
+
     useEffect(() => {
-        dbQueryDoc('items',id,setItem,setLoader);
+        dbQueryDoc('items',id);
     },[id]);
 
     return (
         <div className="itemDetailContainer">
-            {loader?
-                <Loader/>:
-                <ItemDetail item={item}/>
-            }
+            <ItemDetail/>
         </div>
     );
 }

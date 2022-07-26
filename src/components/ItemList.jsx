@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { UseCartContext } from "../context/CartContext";
+
 import Item from "./Item";
 
 import './ItemList.css';
 
-export default function ItemList({items}) {
+export default function ItemList() {
+    const {items} = UseCartContext();
     const [categories, setCategories] = useState([]);
 
     useEffect ((() => {

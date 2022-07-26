@@ -6,7 +6,7 @@ import NavItem from "./NavItem";
 import './Nav.css';
 
 export default function Nav() {
-    const {toggleElement, contDbQueryCollection, contCategories} = UseCartContext();
+    const {toggleElement, dbQueryCollection, categories} = UseCartContext();
     const [breakpoint,setBreakpoint] = useState();
     const [loader,setLoader] = useState(true);
     const navList = useRef();
@@ -14,14 +14,14 @@ export default function Nav() {
     const toggleNav = () => {breakpoint >= window.innerWidth && toggleElement(navList)};
 
     useEffect(() => {
-        contDbQueryCollection('categories', false, 'displayOrder', setLoader);
+        dbQueryCollection('categories', false, 'displayOrder', setLoader);
         navList.current.id = 'isOut';
     },[]);
 
     useEffect(() => {
-        setBreakpoint((contCategories.map(el => el.name).join('').length)*13+(contCategories.length)*45+180)
+        setBreakpoint((categories.map(el => el.name).join('').length)*13+(categories.length)*45+180)
         window.addEventListener('resize', function() {
-            setBreakpoint((contCategories.map(el => el.name).join('').length)*13+(contCategories.length)*45+180)
+            setBreakpoint((categories.map(el => el.name).join('').length)*13+(categories.length)*45+180)
             if (window.innerWidth > breakpoint) {
                 navList.current.style.display = 'flex';
                 navList.current.id = 'isOut';
@@ -30,7 +30,7 @@ export default function Nav() {
                 navList.current.id = 'isOut';
             }
         })
-    },[contCategories, breakpoint]);
+    },[categories, breakpoint]);
 
     return (
         <nav className="navBar">
@@ -42,7 +42,7 @@ export default function Nav() {
             <ul ref={navList} className={`navBar__list--${breakpoint >= window.innerWidth? 'collapsed':'notCollapsed'}`}>
                 {loader?
                     <li style={{color: 'white', margin: 'auto'}}>Cargando categorías...</li>:
-                    contCategories.map((category) => <NavItem key={category.id} category={category} toggleNav={toggleNav}/>)
+                    categories.map((category) => <NavItem key={category.id} category={category} toggleNav={toggleNav}/>)
                 }
             </ul>
         </nav>

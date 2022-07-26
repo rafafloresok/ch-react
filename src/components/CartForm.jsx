@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { UseCartContext } from "../context/CartContext";
-import { createOrder } from "../js/functions";
-
-import Loader from "./Loader";
 
 import './CartForm.css';
 
@@ -12,8 +9,7 @@ export default function CartForm () {
     const [phoneError, setPhoneError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [email2Error, setEmail2Error] = useState(false);
-    const {totalPrice, cartList, setOrderId, clearCart} = UseCartContext();
-    const [loader,setLoader] = useState(false);
+    const {createOrder} = UseCartContext();
 
     const handleChange = (e) => {
         setCustomerData({
@@ -21,19 +17,19 @@ export default function CartForm () {
             [e.target.name]: e.target.value
         });
     }
+
     const sendOrder = () => {
         setNameError(!customerData.name);
         setPhoneError(!customerData.phone);
         setEmailError(!customerData.email);
         setEmail2Error(!(customerData.email2 === customerData.email));
         if (customerData.name && customerData.phone && customerData.email && (customerData.email2 === customerData.email)) {
-            createOrder(setLoader, customerData, totalPrice, cartList, setOrderId, clearCart)
+            createOrder(customerData)
         }
     }
 
     return (
         <>
-            {loader && <Loader/>}
             <div className="cartForm">
                 <p className="cartForm__title">Ingrese sus datos:</p>
                 <form action="">

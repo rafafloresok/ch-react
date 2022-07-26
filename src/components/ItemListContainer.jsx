@@ -7,17 +7,16 @@ import ItemList from "./ItemList";
 import './ItemListContainer.css';
 
 export default function ItemListContainer() {
-    const {contDbQueryCollection, contItems} = UseCartContext();
+    const {dbQueryCollection} = UseCartContext();
     const {id} = useParams();
 
     useEffect(() => {
-        contDbQueryCollection('items', id, 'category');
+        dbQueryCollection('items', id, 'category');
     },[id]);
-
     
     return (
         <div className="itemListContainer">
-            {contItems.length && <ItemList items={contItems}/>}           
+            <ItemList/>         
         </div>
     );
 }

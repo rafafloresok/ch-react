@@ -13,8 +13,9 @@ export default function CartContextProv({children}) {
     const [totalItems, setTotalItems] = useState(0);
     const [orderId, setOrderId] = useState('');
     const [qtyInCart, setQtyInCart] = useState(0);
-    const [contCategories, setContCategories] = useState([]);
-    const [contItems, setContItems] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [items, setItems] = useState([]);
+    const [detailedItem, setDetailedItem] = useState({});
     const [contLoader, setContLoader] = useState(false);
 
     function isInCart(item) {
@@ -82,7 +83,7 @@ export default function CartContextProv({children}) {
         }
     }
 
-    function contDbQueryCollection(collectionName, collectionFilter, sortKey, setOwnLoader) {
+    function dbQueryCollection(collectionName, collectionFilter, sortKey, setOwnLoader) {
         setOwnLoader ? setOwnLoader(true) : setContLoader(true);
         
         const db = getFirestore();
@@ -100,10 +101,10 @@ export default function CartContextProv({children}) {
         }))
         .then(sorted => {switch (collectionName) {
             case 'categories':
-                setContCategories(sorted);
+                setCategories(sorted);
                 break;
             case 'items':
-                setContItems(sorted);
+             setItems(sorted);
                 break;
             default:
                 console.log('invalid collection name');
@@ -112,7 +113,58 @@ export default function CartContextProv({children}) {
         .finally(() => setOwnLoader ? setOwnLoader(false) : setTimeout(() => {setContLoader(false)}, 1000))
     }
 
+    function dbQueryDoc(collectionName, docId, setOwnLoader) {
+        setOwnLoader ? setOwnLoader(true) : setContLoader(true);
+
+        const db = getFirestore();
+        const dbQuery = doc(db, collectionName, docId);
+        getDoc(dbQuery)
+        .then(resp => setDetailedItem({id: resp.id, ...resp.data()}))
+        .catch(err => console.log(err))
+        .finally(() => setOwnLoader ? setOwnLoader(false) : setTimeout(() => {setContLoader(false)}, 1000))
+    }
+
+    function createOrder(customerData) {
+        setContLoader(true);
     
+        let order = {};
+        
+        order.customerData = customerData;
+        order.totalPrice = totalPrice;
+        order.items = cartList.map(item => {
+            const id = item.id;
+            const name = item.name;
+            const quantity = item.quantity;
+            const newStock = item.stock-item.quantity;
+            const price = item.price*item.quantity;
+            return {id, name, quantity, newStock, price}
+        });
+    
+        async function updateStocks() {
+            const queryCollectionStocks = collection(db, 'items');
+            const queryUpdateStocks = query(queryCollectionStocks, where(documentId(), 'in', cartList.map(item => item.id)));
+            const batch = writeBatch(db);
+    
+            await getDocs(queryUpdateStocks)
+            .then(resp => resp.docs.forEach(
+                res => batch.update(res.ref, {stock: order.items.find(item => item.id === res.id).newStock})
+            ))
+            .catch(err => console.log(err))
+    
+            batch.commit()
+        }
+    
+        const db = getFirestore();
+        const queryCollectionOrders = collection(db, 'orders');
+        addDoc(queryCollectionOrders, order)
+        .then(resp => setOrderId(resp.id))
+        .then(() => updateStocks())
+        .catch(err => console.log(err))
+        .finally(() => {
+            clearCart('sent');
+            setContLoader(false);
+        })
+    }
 
     return (
         <cartContext.Provider value={{
@@ -121,8 +173,9 @@ export default function CartContextProv({children}) {
             totalItems,
             orderId,
             qtyInCart,
-            contCategories,
-            contItems,
+            categories,
+            items,
+            detailedItem,
             contLoader,
             addToCart,
             clearCart,
@@ -131,7 +184,9 @@ export default function CartContextProv({children}) {
             checkQtyInCart,
             setOrderId,
             toggleElement,
-            contDbQueryCollection
+            dbQueryCollection,
+            dbQueryDoc,
+            createOrder
         }}>
             {children}
         </cartContext.Provider>
