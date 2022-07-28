@@ -1,0 +1,19 @@
+.toast {
+    position: fixed;
+    z-index: 6;
+    top: 70px;
+    right: 10px;
+    background-color: #1c1c1c;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    animation: fade-out 0.5s 2s ease forwards;
+}
+
+@keyframes fade-out {
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}

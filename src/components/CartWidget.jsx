@@ -17,7 +17,7 @@ export default function CartWidget() {
 
     return (
         <>
-            <div className='cartWidget' onClick={totalItems? toggleCart: undefined} style={{opacity: !totalItems && '0.5', cursor: totalItems? 'pointer': 'default'}}>
+            <div className='cartWidget' onClick={totalItems? toggleCart: undefined} style={{opacity: totalItems || '0.5', cursor: totalItems? 'pointer': 'default'}}>
                 <span className="cartWidget__icon"><i className="bi bi-bag"></i></span>
                 <span className="cartWidget__counter">{totalItems}</span>
             </div>

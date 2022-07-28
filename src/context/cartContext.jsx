@@ -17,20 +17,27 @@ export default function CartContextProv({children}) {
     const [items, setItems] = useState([]);
     const [detailedItem, setDetailedItem] = useState({});
     const [contLoader, setContLoader] = useState(false);
+    const [showToast, setShowToast] = useState(false);
+    const [addedQty, setAddedQty] = useState();
 
     function isInCart(item) {
         return cartList.some(el => el.id === item.id);
     }
 
     function addToCart(item) {
-        if (isInCart(item)) {
-            let i = cartList.findIndex(el => el.id === item.id);
-            const newCartList = cartList;
-            newCartList[i].quantity += item.quantity;
-            updateCart(newCartList);
-        } else {
-            updateCart([...cartList,item]);
-        }
+        setAddedQty(item.quantity);
+        setShowToast(true);
+        setTimeout(() => {
+            setShowToast(false)
+            if (isInCart(item)) {
+                let i = cartList.findIndex(el => el.id === item.id);
+                const newCartList = cartList;
+                newCartList[i].quantity += item.quantity;
+                updateCart(newCartList);
+            } else {
+                updateCart([...cartList,item]);
+            }
+        }, 2500);
     }
 
     function clearCart(sent) {
@@ -177,6 +184,8 @@ export default function CartContextProv({children}) {
             items,
             detailedItem,
             contLoader,
+            showToast,
+            addedQty,
             addToCart,
             clearCart,
             clearItem,
