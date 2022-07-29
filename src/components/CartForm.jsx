@@ -19,11 +19,12 @@ export default function CartForm () {
     }
 
     const sendOrder = () => {
-        setNameError(!customerData.name);
-        setPhoneError(!customerData.phone);
-        setEmailError(!customerData.email);
-        setEmail2Error(!(customerData.email2 === customerData.email));
-        if (customerData.name && customerData.phone && customerData.email && (customerData.email2 === customerData.email)) {
+        const {name, phone, email, email2} = customerData;
+        setNameError(!name);
+        setPhoneError(!phone);
+        setEmailError(!email);
+        setEmail2Error(!(email2 === email));
+        if (name && phone && email && (email2 === email)) {
             createOrder(customerData)
         }
     }

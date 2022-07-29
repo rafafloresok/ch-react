@@ -9,6 +9,7 @@ import './ItemDetail.css';
 export default function ItemDetail() {
     const [inputType, setInputType] = useState('itemCount');
     const {qtyInCart, addToCart, checkQtyInCart, detailedItem} = UseCartContext();
+    const {img, name, price, detail, stock} = detailedItem;
 
     const onAdd = (quantity) => {
         addToCart({...detailedItem, quantity})
@@ -22,13 +23,13 @@ export default function ItemDetail() {
     return (
         <div className="itemDetail">
             <div className="itemDetail__mask"></div>
-            <img className="itemDetail__img" src={detailedItem.img} alt="" />
+            <img className="itemDetail__img" src={img} alt="" />
             <div className='itemDetail__info'>
-                <h3 className="itemDetail__title">{detailedItem.name}</h3>
-                <p className="itemDetail__price">${detailedItem.price}</p>
-                <p className="itemDetail__detail">{detailedItem.detail}</p>
+                <h3 className="itemDetail__title">{name}</h3>
+                <p className="itemDetail__price">${price}</p>
+                <p className="itemDetail__detail">{detail}</p>
                 {inputType === 'itemCount'?
-                    <ItemCount item={detailedItem} currentStock={detailedItem.stock - qtyInCart} onAdd={onAdd}/>:
+                    <ItemCount item={detailedItem} currentStock={stock - qtyInCart} onAdd={onAdd}/>:
                     <BuyButtons/>
                 }
             </div>

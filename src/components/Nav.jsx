@@ -7,8 +7,8 @@ import './Nav.css';
 
 export default function Nav() {
     const {toggleElement, dbQueryCollection, categories} = UseCartContext();
-    const [breakpoint,setBreakpoint] = useState();
-    const [loader,setLoader] = useState(true);
+    const [breakpoint, setBreakpoint] = useState();
+    const [loader, setLoader] = useState(true);
     const navList = useRef();
 
     const toggleNav = () => {breakpoint >= window.innerWidth && toggleElement(navList)};

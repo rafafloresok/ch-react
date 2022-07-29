@@ -52,6 +52,7 @@ export default function CartContextProv({children}) {
     }
 
     function updateCart(arr) {
+        localStorage.setItem("localCart", JSON.stringify(arr));
         setCartList(arr);
         setTotalPrice(arr
             .map(curr => curr.quantity*curr.price)
@@ -195,7 +196,8 @@ export default function CartContextProv({children}) {
             toggleElement,
             dbQueryCollection,
             dbQueryDoc,
-            createOrder
+            createOrder,
+            updateCart
         }}>
             {children}
         </cartContext.Provider>

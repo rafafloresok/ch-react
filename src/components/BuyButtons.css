@@ -9,9 +9,9 @@
     padding: 1rem;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
-    margin: 1rem;
+    margin-bottom: 2rem;
     opacity: 0;
 }
 .buyButtons__goToCart {
@@ -21,6 +21,12 @@
 .buyButtons__goToMenu {
     animation: from-right 0.5s 0s ease;
     animation-fill-mode: forwards;
+}
+
+@media (min-width: 768px) {
+  .buyButtons__goToMenu {
+    font-size: 2.5rem;
+  }
 }
 
 @keyframes from-left {

@@ -2,10 +2,9 @@
     width: 100vw;
     height: calc(100vh - 50px);
     display: flex;
-    flex-flow: row wrap;
-    align-content: center;
+    align-items: center;
     justify-content: center;
-    overflow-y: scroll;
+    overflow: scroll;
     padding: 1rem;
     padding-top: 70px;
 }
