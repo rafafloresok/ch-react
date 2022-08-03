@@ -10,13 +10,15 @@ export default function ItemList() {
     const [categories, setCategories] = useState([]);
 
     useEffect ((() => {
-        setCategories(items.map((item) => item.category).filter((item, i, items) => item !== items[i-1]))
+        setCategories([...(new Set (items.map((item) => item.category)))])
     }),[items])
     
     return (
         <div className="itemList">
             {!items.length?
-                <h1 className="itemList__empty-list-message">Proximamente vas a poder disfrutar esta nueva especialidad!</h1>:
+                <h1 className="itemList__empty-list-message">
+                    Proximamente vas a poder disfrutar esta nueva especialidad!
+                </h1>:
                 <>
                     {categories.map((item) => <ItemSubList key={item} item={item}/>)}
                 </>

@@ -112,7 +112,7 @@ export default function CartContextProv({children}) {
                 setCategories(sorted);
                 break;
             case 'items':
-             setItems(sorted);
+                setItems(sorted);
                 break;
             default:
                 console.log('invalid collection name');

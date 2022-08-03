@@ -9,9 +9,9 @@ import './ItemListContainer.css';
 export default function ItemListContainer() {
     const {dbQueryCollection} = UseCartContext();
     const {id} = useParams();
-
+    
     useEffect(() => {
-        dbQueryCollection('items', id, 'category');
+        dbQueryCollection('items', id, 'category')
     },[id]);
     
     return (

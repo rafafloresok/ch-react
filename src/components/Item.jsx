@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 import './Item.css';
 
-export default function Item({item}) {
+function Item({item}) {
     const {img, stock, category, name, price, id} = item;
 
     return (
@@ -20,3 +21,5 @@ export default function Item({item}) {
         </div>
     );
 }
+
+export default memo(Item)
