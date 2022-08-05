@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import { UseCartContext } from "../context/CartContext";
+import { toggleElement } from "../helpers/helpers";
 
 import Cart from "./Cart";
 
 import './CartWidget.css';
 
 export default function CartWidget() {
-    const {totalItems, toggleElement} = UseCartContext();
+    const {totalItems} = UseCartContext();
     const cart = useRef();
 
     const toggleCart = () => toggleElement(cart);

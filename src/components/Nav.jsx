@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import { UseCartContext } from "../context/CartContext";
+import { toggleElement } from "../helpers/helpers";
 
 import NavItem from "./NavItem";
 
 import './Nav.css';
 
 export default function Nav() {
-    const {toggleElement, dbQueryCollection, categories} = UseCartContext();
+    const {dbQueryCollection, categories} = UseCartContext();
     const [breakpoint, setBreakpoint] = useState();
     const [loader, setLoader] = useState(true);
     const navList = useRef();
