@@ -1,9 +1,9 @@
-import { UseCartContext } from "../context/CartContext";
+import { UseDbContext } from "../context/DbContext";
 
 import './CartEmpty.css';
 
 export default function CartList({toggleCart}) {
-    const {orderId} = UseCartContext();
+    const {orderId} = UseDbContext();
 
     return (
         <div className="cartEmpty">

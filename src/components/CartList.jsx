@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { UseCartContext } from "../context/CartContext";
+import { UseDbContext } from "../context/DbContext";
 
 import CartItem from "./CartItem";
 import CartForm from "./CartForm";
@@ -8,6 +9,7 @@ import './CartList.css';
 
 export default function CartList() {
     const {cartList, totalPrice, clearCart} = UseCartContext();
+    const {setOrderId} = UseDbContext();
     const cartFormCont = useRef();
     const endBtn = useRef();
 
@@ -16,6 +18,11 @@ export default function CartList() {
         endBtn.current.disabled = 'true';
         endBtn.current.style.cursor = 'default';
         endBtn.current.style.opacity = '0.5';
+    }
+
+    const handleClearCart = () => {
+        setOrderId('')
+        clearCart()
     }
 
     return (
@@ -27,7 +34,7 @@ export default function CartList() {
             <p className="cartList__total-price">{`Costo total: $${totalPrice}`}</p>
             <hr />
             <button ref={endBtn} className="cartList__endBtn" onClick={showForm}>Finalizar compra</button>
-            <button className="cartList__cleanBtn" onClick={clearCart}>Vaciar pedido</button>
+            <button className="cartList__cleanBtn" onClick={handleClearCart}>Vaciar pedido</button>
             <hr />
             <div ref={cartFormCont} className="cartForm-container">
                 <CartForm/>

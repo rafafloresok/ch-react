@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useParams } from "react-router-dom";
-import { UseCartContext } from "../context/CartContext";
+import { UseDbContext } from "../context/DbContext";
 
 import ItemDetail from "./ItemDetail";
 
 import './ItemDetailContainer.css';
 
-export default function ItemDetailContainer() {
-    const {dbQueryDoc} = UseCartContext();
+function ItemDetailContainer() {
+    const {dbQueryDoc} = UseDbContext();
     const {id} = useParams();
 
     useEffect(() => {
         dbQueryDoc('items',id);
-    },[id]);
+    },[id, dbQueryDoc]);
 
     return (
         <div className="itemDetailContainer">
@@ -20,3 +20,5 @@ export default function ItemDetailContainer() {
         </div>
     );
 }
+
+export default memo(ItemDetailContainer)

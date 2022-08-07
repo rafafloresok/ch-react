@@ -1,12 +1,12 @@
-import { UseCartContext } from "../context/CartContext";
+import { UseDbContext } from "../context/DbContext";
 import Loader from './Loader';
 
-export default function() {
-    const {contLoader} = UseCartContext();
+export default function LoaderContainer() {
+    const {dbLoading} = UseDbContext();
 
     return (
         <>
-          {contLoader && <Loader/>}  
+          {dbLoading && <Loader/>}  
         </>
     )
 }

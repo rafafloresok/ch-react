@@ -1,13 +1,13 @@
-import { useEffect, useState, useRef } from "react";
-import { UseCartContext } from "../context/CartContext";
+import { useEffect, useState, useRef, memo } from "react";
+import { UseDbContext } from "../context/DbContext";
 import { toggleElement } from "../helpers/helpers";
 
 import NavItem from "./NavItem";
 
 import './Nav.css';
 
-export default function Nav() {
-    const {dbQueryCollection, categories} = UseCartContext();
+function Nav() {
+    const {dbQueryCollection, categories} = UseDbContext();
     const [breakpoint, setBreakpoint] = useState();
     const [loader, setLoader] = useState(true);
     const navList = useRef();
@@ -17,7 +17,7 @@ export default function Nav() {
     useEffect(() => {
         dbQueryCollection('categories', false, 'displayOrder', setLoader);
         navList.current.id = 'isOut';
-    },[]);
+    },[dbQueryCollection]);
 
     useEffect(() => {
         setBreakpoint((categories.map(el => el.name).join('').length)*13+(categories.length)*45+180)
@@ -49,3 +49,5 @@ export default function Nav() {
         </nav>
     );
 }
+
+export default memo(Nav)

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { UseCartContext } from "../context/CartContext";
+import { UseDbContext } from "../context/DbContext";
 
 import ItemCount from "./ItemCount";
 import BuyButtons from "./BuyButtons";
@@ -8,7 +9,8 @@ import './ItemDetail.css';
 
 export default function ItemDetail() {
     const [inputType, setInputType] = useState('itemCount');
-    const {qtyInCart, addToCart, checkQtyInCart, detailedItem} = UseCartContext();
+    const {qtyInCart, addToCart, checkQtyInCart} = UseCartContext();
+    const {detailedItem} = UseDbContext();
     const {img, name, price, detail, stock} = detailedItem;
 
     const onAdd = (quantity) => {

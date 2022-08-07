@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { UseDbContext } from "../context/DbContext";
 import { UseCartContext } from "../context/CartContext";
 
 import './CartForm.css';
 
 export default function CartForm () {
+    const {createOrder} = UseDbContext();
+    const {totalPrice, cartList, clearCart} = UseCartContext();
+
     const [customerData, setCustomerData] = useState({});
     const [nameError, setNameError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [email2Error, setEmail2Error] = useState(false);
-    const {createOrder} = UseCartContext();
 
     const handleChange = (e) => {
         setCustomerData({
@@ -25,7 +28,7 @@ export default function CartForm () {
         setEmailError(!email);
         setEmail2Error(!(email2 === email));
         if (name && phone && email && (email2 === email)) {
-            createOrder(customerData)
+            createOrder(customerData, totalPrice, cartList, clearCart)
         }
     }
 

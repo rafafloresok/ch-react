@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { UseCartContext } from "../context/CartContext";
+import { UseDbContext } from "../context/DbContext";
 
 import ItemSubList from "./ItemSubList";
 
 import './ItemList.css';
 
 export default function ItemList() {
-    const {items} = UseCartContext();
+    const {items} = UseDbContext();
     const [categories, setCategories] = useState([]);
 
     useEffect ((() => {

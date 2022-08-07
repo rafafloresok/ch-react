@@ -3,11 +3,12 @@ import { UseCartContext } from "../context/CartContext";
 import './Toast.css';
 
 export default function Toast() {
-    const {detailedItem, addedQty} = UseCartContext();
+    const {addedItem} = UseCartContext();
+    const {quantity, name} = addedItem;
 
     return (
         <span className="toast">
-            {`Agregada${addedQty>1 ? 's' : ''} ${addedQty} unidad${addedQty>1 ? 'es' : ''} de ${detailedItem.name}`}
+            {`Agregada${quantity>1 ? 's' : ''} ${quantity} unidad${quantity>1 ? 'es' : ''} de ${name}`}
         </span>
     );
 }

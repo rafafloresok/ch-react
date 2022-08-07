@@ -1,11 +1,11 @@
-import { UseCartContext } from "../context/CartContext";
+import { UseDbContext } from "../context/DbContext";
 
 import Item from "./Item";
 
 import './ItemSubList.css';
 
 export default function ItemList({item}) {
-    const {items} = UseCartContext();
+    const {items} = UseDbContext();
     
     return (
         <div className="subList">
