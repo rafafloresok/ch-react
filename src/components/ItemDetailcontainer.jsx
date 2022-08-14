@@ -11,7 +11,7 @@ function ItemDetailContainer() {
     const {id} = useParams();
 
     useEffect(() => {
-        dbQueryDoc('items',id);
+        dbQueryDoc('items',id, false, 'Cargando producto...');
     },[id, dbQueryDoc]);
 
     return (

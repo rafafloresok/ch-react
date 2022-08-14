@@ -1,4 +1,5 @@
 import { UseDbContext } from "../context/DbContext";
+
 import Loader from './Loader';
 
 export default function LoaderContainer() {
@@ -6,7 +7,7 @@ export default function LoaderContainer() {
 
     return (
         <>
-          {dbLoading && <Loader/>}  
+          {dbLoading.status && <Loader/>}  
         </>
     )
 }

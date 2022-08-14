@@ -12,10 +12,10 @@ export default function DbContextProv({children}) {
     const [categories, setCategories] = useState([]);
     const [items, setItems] = useState([]);
     const [detailedItem, setDetailedItem] = useState({});
-    const [dbLoading, setDbLoading] = useState(false);
+    const [dbLoading, setDbLoading] = useState({status: false});
 
-    const dbQueryCollection = useCallback((collectionName, collectionFilter, sortKey, setOwnLoading) => {
-        setOwnLoading ? setOwnLoading(true) : setDbLoading(true);
+    const dbQueryCollection = useCallback((collectionName, collectionFilter, sortKey, setOwnLoading, loadingMessage) => {
+        setOwnLoading ? setOwnLoading(true) : setDbLoading({status: true, message: loadingMessage});
         
         const db = getFirestore();
         const queryCollection = collection(db, collectionName);
@@ -41,22 +41,22 @@ export default function DbContextProv({children}) {
                 console.log('invalid collection name');
         }})
         .catch(err => console.log(err))
-        .finally(() => setOwnLoading ? setOwnLoading(false) : setTimeout(() => {setDbLoading(false)}, 1000))
+        .finally(() => setOwnLoading ? setOwnLoading(false) : setTimeout(() => {setDbLoading({status: false})}, 1000))
     },[])
 
-    const dbQueryDoc = useCallback((collectionName, docId, setOwnLoading) => {
-        setOwnLoading ? setOwnLoading(true) : setDbLoading(true);
+    const dbQueryDoc = useCallback((collectionName, docId, setOwnLoading, loadingMessage) => {
+        setOwnLoading ? setOwnLoading(true) : setDbLoading({status: true, message: loadingMessage});
 
         const db = getFirestore();
         const dbQuery = doc(db, collectionName, docId);
         getDoc(dbQuery)
         .then(resp => setDetailedItem({id: resp.id, ...resp.data()}))
         .catch(err => console.log(err))
-        .finally(() => setOwnLoading ? setOwnLoading(false) : setTimeout(() => {setDbLoading(false)}, 1000))
+        .finally(() => setOwnLoading ? setOwnLoading(false) : setTimeout(() => {setDbLoading({status: false})}, 1000))
     }, [])
 
     function createOrder(customerData, totalPrice, cartList, clearCart) {
-        setDbLoading(true);
+        setDbLoading({status: true, message: 'Enviando pedido...'});
     
         let order = {};
         
@@ -93,7 +93,7 @@ export default function DbContextProv({children}) {
         .catch(err => console.log(err))
         .finally(() => {
             clearCart();
-            setDbLoading(false);
+            setDbLoading({status: false});
         })
     }
 
