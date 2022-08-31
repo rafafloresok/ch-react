@@ -30,7 +30,7 @@ export const useFormValidation = (data) => {
         }
         errors = {
             ...errors,
-            [`${key}Err`]: error
+            [`${key}Error`]: error
         }
     }
 
