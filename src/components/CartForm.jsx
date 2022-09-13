@@ -26,7 +26,7 @@ export default function CartForm () {
     
     const handleSubmit = () => {
         if (formFilled && formSuccess) {
-            createOrder(customerData, totalPrice, cartList, clearCart);
+            createOrder({customerData, totalPrice, cartList, clearCart});
         }
     }
  
@@ -46,7 +46,7 @@ export default function CartForm () {
                     <textarea className="cartForm__textarea" name="comments" onChange={(e) => handleChange(e)} id="" cols="30" rows="10" placeholder="Escriba aquí sus comentarios..." ></textarea>
                     {commentsError && <span className="cartForm__error">No debe superar los 255 caracteres</span>}
                 </form>
-                <button className="cartForm__button" onClick={handleSubmit} style={{opacity: formFilled || '0.5', cursor: formFilled ? 'pointer' : 'default'}} >Enviar pedido</button>
+                <button className="cartForm__button" onClick={handleSubmit} style={formFilled? {cursor: 'pointer', background: '#008f39'}: {cursor: 'default', background: 'red'}} >{formFilled? 'Enviar pedido' : 'Complete el formulario'}</button>
             </div>
         </>
     );

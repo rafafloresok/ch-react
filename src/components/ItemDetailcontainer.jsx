@@ -11,7 +11,7 @@ function ItemDetailContainer() {
     const {id} = useParams();
 
     useEffect(() => {
-        dbQueryDoc('items',id, false, 'Cargando producto...');
+        dbQueryDoc({collectionName: 'items', docId: id, loadingMessage: 'Cargando producto...'});
     },[id, dbQueryDoc]);
 
     return (

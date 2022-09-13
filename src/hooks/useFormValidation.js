@@ -7,15 +7,15 @@ export const useFormValidation = (data) => {
         switch (key) {
             case 'name':
                 regEx = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-                error = !data[key] || !regEx.test(data[key]);
+                error = !regEx.test(data[key]);
                 break;
             case 'phone':
                 regEx = /^[0-9/-]+$/;
-                error = !data[key] || !regEx.test(data[key]);
+                error = !regEx.test(data[key]);
                 break;
             case 'email':
                 regEx = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
-                error = !data[key] || !regEx.test(data[key]);
+                error = !regEx.test(data[key]);
                 break;
             case 'emailRepeat':
                 error = !(data[key] === data.email);

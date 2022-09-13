@@ -14,7 +14,7 @@ export default function DbContextProv({children}) {
     const [detailedItem, setDetailedItem] = useState({});
     const [dbLoading, setDbLoading] = useState({status: false});
 
-    const dbQueryCollection = useCallback((collectionName, collectionFilter, sortKey, setOwnLoading, loadingMessage) => {
+    const dbQueryCollection = useCallback(({collectionName, collectionFilter, sortKey, setOwnLoading, loadingMessage}) => {
         setOwnLoading ? setOwnLoading(true) : setDbLoading({status: true, message: loadingMessage});
         
         const db = getFirestore();
@@ -44,7 +44,7 @@ export default function DbContextProv({children}) {
         .finally(() => setOwnLoading ? setOwnLoading(false) : setTimeout(() => {setDbLoading({status: false})}, 1000))
     },[])
 
-    const dbQueryDoc = useCallback((collectionName, docId, setOwnLoading, loadingMessage) => {
+    const dbQueryDoc = useCallback(({collectionName, docId, setOwnLoading, loadingMessage}) => {
         setOwnLoading ? setOwnLoading(true) : setDbLoading({status: true, message: loadingMessage});
 
         const db = getFirestore();
@@ -55,7 +55,7 @@ export default function DbContextProv({children}) {
         .finally(() => setOwnLoading ? setOwnLoading(false) : setTimeout(() => {setDbLoading({status: false})}, 1000))
     }, [])
 
-    function createOrder(customerData, totalPrice, cartList, clearCart) {
+    function createOrder({customerData, totalPrice, cartList, clearCart}) {
         setDbLoading({status: true, message: 'Enviando pedido...'});
     
         let order = {};

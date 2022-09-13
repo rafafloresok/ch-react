@@ -11,7 +11,7 @@ function ItemListContainer() {
     const {id} = useParams();
     
     useEffect(() => {
-        dbQueryCollection('items', id, 'category', false, 'Cargando productos...')
+        dbQueryCollection({collectionName: 'items', collectionFilter: id, sortKey: 'category', loadingMessage: 'Cargando productos...'})
     },[id, dbQueryCollection]);
     
     return (
