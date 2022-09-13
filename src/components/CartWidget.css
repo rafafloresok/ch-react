@@ -3,6 +3,14 @@
     position: relative;
     color: white;
 }
+.cartWidget--empty {
+    opacity: 0.5;
+    cursor: default;
+}
+.cartWidget--filled {
+    opacity: 1;
+    cursor: pointer;
+}
 .cartWidget__icon {
     font-size: 3.5rem;
 }
